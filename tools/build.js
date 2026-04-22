@@ -96,6 +96,8 @@ const HTML = `<!DOCTYPE html>
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#eef1ed" />
+<meta name="color-scheme" content="light" />
 <title data-i18n="meta_title">${escape(site.translations.en.meta_title)}</title>
 <meta name="description" data-i18n-attr="content:meta_desc" content="${escape(site.translations.en.meta_desc)}" />
 
@@ -107,9 +109,9 @@ const HTML = `<!DOCTYPE html>
   :root {
     --ink: #0c2235;
     --ink-soft: #3b556e;
-    --paper: #f0e8d6;
-    --paper-deep: #e1d6bd;
-    --cream: #faf5e8;
+    --paper: #eef1ed;
+    --paper-deep: #dce3df;
+    --cream: #f7faf7;
     --sea: #1b5a87;
     --sea-deep: #0e3d63;
     --sea-ink: #062238;
@@ -141,9 +143,9 @@ const HTML = `<!DOCTYPE html>
     inset: 0;
     pointer-events: none;
     z-index: 1;
-    opacity: 0.32;
+    opacity: 0.18;
     mix-blend-mode: multiply;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.08  0 0 0 0 0.12  0 0 0 0 0.18  0 0 0 0.16 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.10  0 0 0 0 0.12  0 0 0 0 0.14  0 0 0 0.14 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
   }
 
   h1, h2, h3, h4, .serif { font-family: 'Fraunces', Georgia, serif; font-weight: 500; letter-spacing: -0.01em; }
@@ -193,7 +195,7 @@ const HTML = `<!DOCTYPE html>
   /* ===== Nav ===== */
   .nav {
     position: sticky; top: 0; z-index: 50;
-    background: rgba(240, 232, 214, 0.85);
+    background: rgba(238, 241, 237, 0.85);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--rule-soft);
