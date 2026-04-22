@@ -124,10 +124,13 @@ async function main() {
 }
 
 function drawCenteredText(page, text, font, size, color, cx, y, spacing = 0) {
+  // pdf-lib's widthOfTextAtSize already reports the rendered advance width.
+  // Previously we added (N-1)*spacing on top, which over-compensated and
+  // shifted long letter-spaced strings visibly left. Using baseWidth directly
+  // yields true visual centering. characterSpacing is still applied at render.
   const baseWidth = font.widthOfTextAtSize(text, size);
-  const totalWidth = baseWidth + Math.max(0, (text.length - 1) * spacing);
   page.drawText(text, {
-    x: cx - totalWidth / 2,
+    x: cx - baseWidth / 2,
     y,
     size,
     font,
