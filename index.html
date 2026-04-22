@@ -1,0 +1,1585 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlroot">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title data-i18n="meta_title">Taverna 90 Moires — Fish &amp; Traditional · Gythio, Mani · since 1959</title>
+<meta name="description" data-i18n-attr="content:meta_desc" content="A family fish taverna on the Laconian shore. Three generations of fishermen, cooks, and hosts on Prothypourgou Tzanni Tzannetaki, Gythio — since 1959." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ink: #0c2235;
+    --ink-soft: #3b556e;
+    --paper: #f0e8d6;
+    --paper-deep: #e1d6bd;
+    --cream: #faf5e8;
+    --sea: #1b5a87;
+    --sea-deep: #0e3d63;
+    --sea-ink: #062238;
+    --gold: #c29a3a;
+    --coral: #c95b3a;
+    --seafoam: #5a8c86;
+    --rule: rgba(12, 34, 53, 0.18);
+    --rule-soft: rgba(12, 34, 53, 0.08);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 400;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.55;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* paper grain overlay */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.32;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.08  0 0 0 0 0.12  0 0 0 0 0.18  0 0 0 0.16 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+
+  h1, h2, h3, h4, .serif { font-family: 'Fraunces', Georgia, serif; font-weight: 500; letter-spacing: -0.01em; }
+  a { color: inherit; text-decoration: none; }
+  .script { font-family: 'Caveat', cursive; font-weight: 600; }
+  .container { width: min(1200px, 92vw); margin: 0 auto; position: relative; z-index: 2; }
+
+  /* ===== Language switcher ===== */
+  .nav-right { display: flex; align-items: center; gap: 16px; }
+  .lang-switcher { position: relative; }
+  .lang-current {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: transparent; border: 1px solid var(--rule);
+    color: var(--ink); padding: 8px 14px; border-radius: 999px;
+    font-size: 12px; font-weight: 500; letter-spacing: 0.08em;
+    cursor: pointer; font-family: inherit;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .lang-current:hover { border-color: var(--sea); }
+  .lang-current .flag { font-size: 16px; line-height: 1; }
+  .lang-menu {
+    position: absolute; top: calc(100% + 8px); right: 0;
+    min-width: 180px; background: var(--cream);
+    border: 1px solid var(--rule); border-radius: 6px;
+    box-shadow: 0 15px 40px rgba(12, 34, 53, 0.12);
+    list-style: none; padding: 6px; margin: 0;
+    opacity: 0; visibility: hidden; transform: translateY(-4px);
+    transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+    z-index: 100;
+  }
+  .lang-menu.open { opacity: 1; visibility: visible; transform: translateY(0); }
+  .lang-menu li {
+    display: flex; align-items: center; gap: 10px;
+    padding: 9px 12px; font-size: 14px; border-radius: 4px;
+    cursor: pointer; font-family: 'Fraunces', serif;
+    transition: background 0.15s;
+  }
+  .lang-menu li:hover { background: var(--paper-deep); }
+  .lang-menu li.active { background: var(--paper-deep); color: var(--sea-deep); }
+  .lang-menu li .flag { font-size: 18px; line-height: 1; }
+
+  @media (max-width: 768px) {
+    .nav-cta { display: none; }
+    .lang-current { padding: 7px 12px; }
+  }
+
+  /* ===== Nav ===== */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(240, 232, 214, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: 'Fraunces', serif; font-weight: 600; font-size: 20px; letter-spacing: 0.02em; }
+  .brand-mark {
+    width: 42px; height: 42px;
+    display: grid; place-items: center;
+    background: var(--sea); color: var(--cream);
+    border-radius: 50%;
+    font-family: 'Fraunces', serif; font-weight: 700;
+    font-size: 15px; letter-spacing: -0.02em;
+  }
+  .nav-links {
+    display: flex; gap: 34px;
+    font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .nav-links a { position: relative; padding: 4px 0; transition: color 0.25s; }
+  .nav-links a::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: -2px;
+    height: 1px; background: var(--sea);
+    transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease;
+  }
+  .nav-links a:hover::after { transform: scaleX(1); }
+  .nav-cta {
+    background: var(--ink); color: var(--cream);
+    padding: 10px 20px; border-radius: 999px;
+    font-size: 13px; font-weight: 500; letter-spacing: 0.04em;
+    transition: background 0.25s;
+  }
+  .nav-cta:hover { background: var(--sea); }
+
+  @media (max-width: 768px) { .nav-links { display: none; } }
+
+  /* ===== Hero ===== */
+  .hero { position: relative; padding: 80px 0 110px; overflow: hidden; }
+  .hero-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 64px; align-items: center; }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--sea-deep); font-weight: 500; margin-bottom: 28px;
+  }
+  .hero-eyebrow::before { content: ""; width: 38px; height: 1px; background: var(--sea-deep); }
+  .hero h1 {
+    font-size: clamp(42px, 6.2vw, 82px);
+    line-height: 0.98; letter-spacing: -0.03em;
+    font-weight: 500; color: var(--ink); margin-bottom: 28px;
+  }
+  .hero h1 .accent { font-style: italic; font-weight: 400; color: var(--sea-deep); }
+  .hero h1 .swash {
+    font-family: 'Caveat', cursive; font-weight: 600;
+    color: var(--gold); font-size: 0.65em;
+    vertical-align: middle; display: inline-block;
+    transform: translateY(-0.15em) rotate(-4deg); margin: 0 0.1em;
+  }
+  .hero-lede { font-size: 18px; max-width: 46ch; color: var(--ink-soft); margin-bottom: 38px; line-height: 1.6; }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 15px 28px; font-size: 14px; letter-spacing: 0.04em; font-weight: 500;
+    border-radius: 999px; transition: transform 0.25s, background 0.25s, color 0.25s; cursor: pointer;
+  }
+  .btn-primary { background: var(--sea); color: var(--cream); }
+  .btn-primary:hover { background: var(--sea-deep); transform: translateY(-2px); }
+  .btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
+  .btn-ghost:hover { background: var(--ink); color: var(--cream); transform: translateY(-2px); }
+  .btn .arrow { transition: transform 0.25s; }
+  .btn:hover .arrow { transform: translateX(4px); }
+
+  .hero-art {
+    position: relative; width: 100%; max-width: 560px; margin-left: auto;
+    border-radius: 2px; overflow: hidden;
+    box-shadow: 0 30px 60px -20px rgba(6, 34, 56, 0.4), 0 15px 30px -15px rgba(6, 34, 56, 0.3);
+    transform: rotate(-0.6deg);
+    transition: transform 0.6s ease;
+  }
+  .hero-art:hover { transform: rotate(0) translateY(-4px); }
+  .hero-art img { display: block; width: 100%; height: auto; }
+
+  .hero-art-placeholder {
+    aspect-ratio: 4 / 5;
+    background:
+      linear-gradient(160deg, var(--sea-deep) 0%, var(--sea) 45%, var(--seafoam) 100%);
+    display: grid; place-items: center;
+    color: var(--cream);
+    font-family: 'Fraunces', serif; font-style: italic;
+    font-size: clamp(28px, 3.6vw, 42px);
+    text-align: center; padding: 40px;
+    line-height: 1.15;
+  }
+  .hero-art-placeholder::after {
+    content: "1959";
+    position: absolute; bottom: 24px; right: 28px;
+    font-family: 'Caveat', cursive; color: var(--gold); font-size: 24px;
+    transform: rotate(-4deg);
+  }
+
+  .hero-strip {
+    display: flex; align-items: center; gap: 30px;
+    margin-top: 70px; padding-top: 30px;
+    border-top: 1px solid var(--rule-soft);
+    font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--ink-soft); flex-wrap: wrap;
+  }
+  .hero-strip .dot { color: var(--sea); }
+
+  @media (max-width: 900px) {
+    .hero { padding: 50px 0 70px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 50px; }
+    .hero-art { max-width: 460px; margin: 0 auto; }
+  }
+
+  /* ===== Marquee ===== */
+  .marquee {
+    background: var(--sea-ink); color: var(--cream);
+    padding: 18px 0; overflow: hidden;
+    border-top: 1px solid var(--sea-deep);
+    border-bottom: 1px solid var(--sea-deep);
+  }
+  .marquee-track {
+    display: flex; gap: 60px;
+    animation: scroll 42s linear infinite; white-space: nowrap;
+  }
+  .marquee-item {
+    font-family: 'Fraunces', serif; font-style: italic;
+    font-size: 22px; letter-spacing: 0.02em;
+    display: flex; align-items: center; gap: 60px;
+  }
+  .marquee-item::after { content: "✦"; color: var(--gold); font-style: normal; }
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* ===== Story ===== */
+  .story { padding: 130px 0 120px; position: relative; }
+  .story-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 80px; align-items: start; }
+  .section-eyebrow {
+    font-size: 12px; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--sea-deep); font-weight: 500; margin-bottom: 18px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .section-eyebrow::before { content: ""; width: 30px; height: 1px; background: var(--sea-deep); }
+  .story h2 { font-size: clamp(36px, 4.5vw, 58px); line-height: 1.02; letter-spacing: -0.02em; font-weight: 500; margin-bottom: 24px; }
+  .story h2 em { font-style: italic; color: var(--sea-deep); }
+  .story p { font-size: 17px; color: var(--ink-soft); margin-bottom: 20px; line-height: 1.7; }
+  .story p:first-of-type::first-letter {
+    font-family: 'Fraunces', serif; font-size: 68px; font-weight: 600; font-style: italic;
+    float: left; line-height: 0.85; margin: 8px 12px 0 0; color: var(--sea);
+  }
+  .story-facts {
+    margin-top: 36px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 24px 36px;
+    padding-top: 32px; border-top: 1px solid var(--rule);
+  }
+  .fact .num {
+    font-family: 'Fraunces', serif; font-size: 44px; font-weight: 500;
+    color: var(--seafoam); line-height: 1; display: block;
+  }
+  .fact .lbl { font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-soft); margin-top: 6px; }
+
+  @media (max-width: 900px) {
+    .story { padding: 80px 0; }
+    .story-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  /* ===== Signature ===== */
+  .signature {
+    background: var(--sea-ink); color: var(--cream);
+    padding: 120px 0; position: relative; overflow: hidden;
+  }
+  .signature::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 85% 20%, rgba(194, 154, 58, 0.22), transparent 55%),
+      radial-gradient(circle at 10% 80%, rgba(90, 140, 134, 0.25), transparent 55%);
+  }
+  .signature .container { position: relative; z-index: 2; }
+  .signature h2 {
+    font-size: clamp(40px, 6vw, 78px); line-height: 1; letter-spacing: -0.02em;
+    font-weight: 400; margin-bottom: 16px;
+  }
+  .signature h2 em { font-style: italic; color: var(--gold); }
+  .signature .sub {
+    font-family: 'Caveat', cursive; font-size: 28px; color: var(--gold);
+    margin-bottom: 50px; display: inline-block; transform: rotate(-2deg);
+  }
+  .trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; margin-top: 60px; }
+  .trio-card { position: relative; padding-top: 28px; }
+  .trio-num {
+    font-family: 'Fraunces', serif; font-size: 84px; font-weight: 400; font-style: italic;
+    color: var(--gold); line-height: 0.8; display: block; opacity: 0.9;
+  }
+  .trio-card h3 { font-size: 28px; margin: 18px 0 10px; font-weight: 500; }
+  .trio-card .gr {
+    font-family: 'Fraunces', serif; font-style: italic; color: var(--seafoam);
+    font-size: 17px; display: block; margin-bottom: 14px;
+  }
+  .trio-card p { color: rgba(250, 245, 232, 0.78); font-size: 15px; line-height: 1.7; }
+
+  @media (max-width: 900px) {
+    .signature { padding: 80px 0; }
+    .trio { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  /* ===== Menu ===== */
+  .menu { padding: 130px 0; background: var(--paper); }
+  .menu-header { text-align: center; margin-bottom: 80px; }
+  .menu-header h2 {
+    font-size: clamp(42px, 5vw, 68px); line-height: 1; letter-spacing: -0.02em;
+    font-weight: 500; margin-bottom: 16px;
+  }
+  .menu-header h2 em { font-style: italic; color: var(--sea-deep); }
+  .menu-header p {
+    font-family: 'Fraunces', serif; font-style: italic; font-size: 18px;
+    color: var(--ink-soft); max-width: 56ch; margin: 0 auto;
+  }
+  .menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px 80px; }
+  .menu-section h3 {
+    font-size: 26px; font-weight: 500; margin-bottom: 6px;
+    display: flex; align-items: baseline; gap: 14px;
+  }
+  .menu-section h3 .gr {
+    font-family: 'Fraunces', serif; font-style: italic; font-weight: 400;
+    color: var(--sea-deep); font-size: 20px;
+  }
+  .menu-items { margin-top: 22px; }
+  .menu-items--two-col { display: grid; grid-template-columns: 1fr 1fr; column-gap: 60px; }
+  .menu-item {
+    display: grid; grid-template-columns: 1fr auto;
+    align-items: baseline; padding: 12px 0;
+    border-bottom: 1px dotted var(--rule); gap: 16px;
+  }
+  .menu-item:last-child { border-bottom: none; }
+  .menu-item .name {
+    font-family: 'Fraunces', serif; font-size: 17px; font-weight: 500;
+    color: var(--ink); line-height: 1.25;
+  }
+  .menu-item .name .el {
+    display: block; font-size: 13px; font-style: italic; font-weight: 400;
+    color: var(--ink-soft); margin-top: 3px; line-height: 1.45;
+  }
+  .menu-item .price {
+    font-family: 'Fraunces', serif; font-size: 17px; font-weight: 500;
+    color: var(--sea-deep); font-variant-numeric: tabular-nums;
+  }
+  .menu-item .price::before {
+    content: "€"; font-size: 13px; margin-right: 2px; opacity: 0.7;
+  }
+  .menu-item .price--kg::after {
+    content: " / kg"; font-size: 11px; color: var(--ink-soft); font-style: italic; font-weight: 400;
+  }
+  .menu-item--feat {
+    background: var(--cream);
+    border: 1px solid var(--rule); border-radius: 4px;
+    padding: 14px 16px; margin: 8px 0;
+  }
+  .menu-item--feat .name { color: var(--sea-deep); }
+
+  /* featured Tripleta-style block */
+  .featured {
+    grid-column: 1 / -1;
+    background: var(--cream);
+    padding: 36px 40px; border: 1px solid var(--rule);
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 30px; position: relative;
+  }
+  .featured::before {
+    content: "ΣΗΜΑ ΚΑΤΑΤΕΘΕΝ";
+    position: absolute; top: -11px; left: 30px;
+    background: var(--paper); padding: 0 12px;
+    font-size: 10px; letter-spacing: 0.28em; color: var(--sea-deep);
+  }
+  .featured h4 { font-size: 26px; font-weight: 500; margin-bottom: 6px; }
+  .featured h4 em { font-style: italic; color: var(--sea-deep); }
+  .featured p { font-size: 14px; color: var(--ink-soft); max-width: 60ch; }
+  .featured .price-block { text-align: right; flex-shrink: 0; }
+  .featured .price-block .amt {
+    font-family: 'Fraunces', serif; font-size: 42px; font-weight: 500;
+    color: var(--sea-deep); line-height: 1;
+  }
+  .featured .price-block .amt::before {
+    content: "€"; font-size: 22px; vertical-align: top; margin-right: 2px; opacity: 0.75;
+  }
+  .featured .price-block .lbl {
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--ink-soft); margin-top: 4px;
+  }
+
+  /* kilo banner */
+  .menu-section--kilo { grid-column: 1 / -1; }
+  .menu-section--kilo .menu-items { display: grid; grid-template-columns: 1fr 1fr; column-gap: 60px; }
+  .kilo-note {
+    font-family: 'Caveat', cursive; color: var(--gold); font-size: 20px;
+    margin: 2px 0 14px; display: block;
+  }
+
+  @media (max-width: 900px) {
+    .menu { padding: 80px 0; }
+    .menu-grid { grid-template-columns: 1fr; gap: 50px; }
+    .menu-section--kilo .menu-items { grid-template-columns: 1fr; }
+    .menu-items--two-col { grid-template-columns: 1fr; }
+    .featured { flex-direction: column; align-items: flex-start; padding: 28px; }
+    .featured .price-block { text-align: left; }
+  }
+
+  /* ===== Visit ===== */
+  .visit {
+    background: var(--sea-deep); color: var(--cream);
+    padding: 120px 0; position: relative; overflow: hidden;
+  }
+  .visit::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(194, 154, 58, 0.15), transparent 45%),
+      radial-gradient(circle at 90% 90%, rgba(90, 140, 134, 0.18), transparent 50%);
+  }
+  .visit .container { position: relative; z-index: 2; }
+  .visit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .visit h2 {
+    font-size: clamp(40px, 5vw, 64px); line-height: 1; letter-spacing: -0.02em;
+    font-weight: 400; margin-bottom: 22px;
+  }
+  .visit h2 em { font-style: italic; color: var(--gold); }
+  .visit-intro {
+    font-size: 18px; color: rgba(250, 245, 232, 0.82);
+    line-height: 1.65; margin-bottom: 38px; max-width: 42ch;
+  }
+  .info-block { padding: 22px 0; border-top: 1px solid rgba(250, 245, 232, 0.18); }
+  .info-block:last-child { border-bottom: 1px solid rgba(250, 245, 232, 0.18); }
+  .info-block .lbl { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+  .info-block .val { font-family: 'Fraunces', serif; font-size: 20px; line-height: 1.35; }
+  .info-block .val a:hover { color: var(--gold); }
+  .info-block .sub { font-size: 14px; color: rgba(250, 245, 232, 0.65); margin-top: 4px; }
+  .hours-table { width: 100%; border-collapse: collapse; }
+  .hours-table td {
+    padding: 10px 0; font-size: 15px;
+    border-bottom: 1px solid rgba(250, 245, 232, 0.12);
+    font-family: 'Fraunces', serif;
+  }
+  .hours-table td:first-child { color: rgba(250, 245, 232, 0.7); font-style: italic; }
+  .hours-table td:last-child { text-align: right; font-weight: 500; }
+  .hours-table tr:last-child td { border-bottom: none; }
+
+  @media (max-width: 900px) {
+    .visit { padding: 80px 0; }
+    .visit-grid { grid-template-columns: 1fr; gap: 50px; }
+  }
+
+  /* ===== Footer ===== */
+  footer { background: var(--sea-ink); color: rgba(250, 245, 232, 0.7); padding: 60px 0 40px; }
+  .foot { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+  .foot .brand { color: var(--cream); }
+  .foot-note { font-size: 13px; font-family: 'Fraunces', serif; font-style: italic; }
+  .foot-links { display: flex; gap: 24px; font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; }
+  .foot-links a:hover { color: var(--gold); }
+
+  /* reveal on scroll */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- ========= NAV ========= -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="#top">
+      <span class="brand-mark">90</span>
+      <span>Ταβέρνα 90 Μοίρες</span>
+    </a>
+    <div class="nav-links">
+      <a href="#story" data-i18n="nav_story">Our Story</a>
+      <a href="#signature" data-i18n="nav_signature">The Octopus</a>
+      <a href="#menu" data-i18n="nav_menu">Menu</a>
+      <a href="#visit" data-i18n="nav_visit">Visit</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-switcher">
+        <button class="lang-current" id="langButton" aria-haspopup="true" aria-expanded="false">
+          <span class="flag" id="langCurrentFlag">🇬🇧</span>
+          <span id="langCurrentLabel">EN</span>
+          <span aria-hidden="true">▾</span>
+        </button>
+        <ul class="lang-menu" id="langMenu">
+          <li data-lang="en"><span class="flag">🇬🇧</span><span>English</span></li>
+          <li data-lang="el"><span class="flag">🇬🇷</span><span>Ελληνικά</span></li>
+          <li data-lang="de"><span class="flag">🇩🇪</span><span>Deutsch</span></li>
+          <li data-lang="fr"><span class="flag">🇫🇷</span><span>Français</span></li>
+          <li data-lang="es"><span class="flag">🇪🇸</span><span>Español</span></li>
+          <li data-lang="it"><span class="flag">🇮🇹</span><span>Italiano</span></li>
+          <li data-lang="pt"><span class="flag">🇵🇹</span><span>Português</span></li>
+        </ul>
+      </div>
+      <a class="nav-cta" href="#visit" data-i18n="nav_cta">Find Us</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ========= HERO ========= -->
+<section class="hero" id="top">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <span class="hero-eyebrow" data-i18n="hero_eyebrow">90 Moires · Gythio · Mani · since 1959</span>
+        <h1 data-i18n-html="hero_title_html">A family fish taverna<br/><span class="accent">at the corner</span> of<br/>the Laconian shore, <span class="swash">&amp;</span><br/><span class="accent">the boats that feed it.</span></h1>
+        <p class="hero-lede" data-i18n="hero_lede">Three generations of fishermen, cooks, and hosts. The catch comes in from the gulf; the oil is pressed in the hills; the charcoal never quite goes out. No shortcuts — just the sea, the grill, the family.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#menu"><span data-i18n="hero_btn_menu">See the Menu</span> <span class="arrow">→</span></a>
+          <a class="btn btn-ghost" href="#story" data-i18n="hero_btn_story">What's 90 Moires?</a>
+        </div>
+      </div>
+      <div class="hero-art reveal">
+        <img src="images/hero.jpg" alt="Taverna 90 Moires" onerror="this.outerHTML='<div class=&quot;hero-art-placeholder&quot;><div>Χταπόδι<br/><em>on charcoal</em></div></div>'"/>
+      </div>
+    </div>
+    <div class="hero-strip">
+      <span class="dot">●</span> <span data-i18n="strip_1">Daily catch</span>
+      <span class="dot">●</span> <span data-i18n="strip_2">Laconian olive oil</span>
+      <span class="dot">●</span> <span data-i18n="strip_3">House wine from the barrel</span>
+      <span class="dot">●</span> <span data-i18n="strip_4">Family recipes since 1959</span>
+    </div>
+  </div>
+</section>
+
+<!-- ========= MARQUEE ========= -->
+<div class="marquee">
+  <div class="marquee-track">
+    <div class="marquee-item">Ψάρι · Χταπόδι · Καλαμάρι · Γαρίδες · Μπαρμπούνι · Μελιτζάνα · Φέτα · Ούζο</div>
+    <div class="marquee-item">Ψάρι · Χταπόδι · Καλαμάρι · Γαρίδες · Μπαρμπούνι · Μελιτζάνα · Φέτα · Ούζο</div>
+  </div>
+</div>
+
+<!-- ========= STORY ========= -->
+<section class="story" id="story">
+  <div class="container">
+    <div class="story-grid">
+      <div class="reveal">
+        <span class="section-eyebrow" data-i18n="story_eyebrow">Our Story</span>
+        <h2 data-i18n-html="story_title_html">A corner on the <em>Laconian Gulf.</em></h2>
+      </div>
+      <div class="reveal">
+        <p data-i18n="story_p1">Ninety degrees. The corner where our doors meet the harbor road — and the compass bearing our boats take out of Gythio every dawn. Three generations, same angle, same family, since 1959.</p>
+        <p data-i18n="story_p2">The grandfather fished. The son cooked. The grandchildren still do both. What comes out of the water at six in the morning is on a plate by twelve. What doesn't get caught that day, doesn't get served. That's the whole logic of this place.</p>
+        <p data-i18n="story_p3">Our oil is pressed in the Mani hills above us. Our wine is drawn from the barrel. Our fish is priced by the kilo because the fish decides what it weighs, not us. Sit at a table on Tzanni Tzannetaki, order what the day brought in, watch the harbor. That's dinner.</p>
+        <div class="story-facts">
+          <div class="fact">
+            <span class="num" data-i18n="fact_1_num">65+</span>
+            <span class="lbl" data-i18n="fact_1_lbl">years at the same corner</span>
+          </div>
+          <div class="fact">
+            <span class="num" data-i18n="fact_2_num">3</span>
+            <span class="lbl" data-i18n="fact_2_lbl">generations of cooks</span>
+          </div>
+          <div class="fact">
+            <span class="num" data-i18n="fact_3_num">12+</span>
+            <span class="lbl" data-i18n="fact_3_lbl">kinds of fresh fish by the kilo</span>
+          </div>
+          <div class="fact">
+            <span class="num" data-i18n="fact_4_num">90°</span>
+            <span class="lbl" data-i18n="fact_4_lbl">east by dawn, every morning</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= SIGNATURE ========= -->
+<section class="signature" id="signature">
+  <div class="container reveal">
+    <span class="section-eyebrow" style="color: var(--gold);" data-i18n="sig_eyebrow">Σήμα Κατατεθέν · The Signature</span>
+    <h2 data-i18n-html="sig_title_html">Grilled <em>Octopus.</em></h2>
+    <span class="sub" data-i18n="sig_sub">the way it's done on the Mani coast</span>
+    <p style="max-width: 52ch; color: rgba(250,245,232,0.82); line-height: 1.7; font-size: 17px;" data-i18n="sig_intro">Caught in the gulf, hung on the line to air-cure, then laid on the charcoal. No marinade — just salt, olive oil, oregano, a squeeze of lemon. Tender on the inside, blistered on the outside, and unmistakable. If you only eat one thing at 90 Moires, eat this.</p>
+
+    <div class="trio">
+      <div class="trio-card reveal">
+        <span class="trio-num">i.</span>
+        <h3 data-i18n="trio_1_title">The Catch</h3>
+        <span class="gr" data-i18n="trio_1_gr">Από τη θάλασσα</span>
+        <p data-i18n="trio_1_desc">Sourced fresh from the small boats of Gythio and the broader Laconian gulf. What arrives in the kitchen in the morning is what's on the menu that night — not a day later.</p>
+      </div>
+      <div class="trio-card reveal">
+        <span class="trio-num">ii.</span>
+        <h3 data-i18n="trio_2_title">The Fire</h3>
+        <span class="gr" data-i18n="trio_2_gr">Στα κάρβουνα</span>
+        <p data-i18n="trio_2_desc">Real charcoal, never gas. The octopus spends its time on the wire just long enough for the edges to blister, for the inside to stay soft, for the smoke to find every tentacle.</p>
+      </div>
+      <div class="trio-card reveal">
+        <span class="trio-num">iii.</span>
+        <h3 data-i18n="trio_3_title">The Table</h3>
+        <span class="gr" data-i18n="trio_3_gr">Στο τραπέζι</span>
+        <p data-i18n="trio_3_desc">Served on a simple plate with olive oil, oregano, a wedge of lemon, and a half-kilo of house wine — because the wine and the octopus were made for each other, and everyone in the Mani knows it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= MENU ========= -->
+<section class="menu" id="menu">
+  <div class="container">
+    <div class="menu-header reveal">
+      <span class="section-eyebrow" style="justify-content: center;" data-i18n="menu_eyebrow">Κατάλογος · Menu</span>
+      <h2 data-i18n-html="menu_title_html">The <em>Menu.</em></h2>
+      <p data-i18n="menu_intro">Prices in euros. The fish counter changes daily — ask your server what came in this morning. Seafood by the kilo is exactly that: the fish is weighed in front of you, priced per kilo, cooked however you like.</p>
+    </div>
+
+    <div class="menu-grid">
+
+      <!-- Featured: Grilled Octopus -->
+      <div class="featured reveal">
+        <div>
+          <h4 data-i18n-html="feat_title_html">Grilled <em>Octopus</em></h4>
+          <p style="font-family: 'Fraunces', serif; font-style: italic; color: var(--sea-deep); margin: 4px 0 8px;" data-i18n="feat_sub">Χταπόδι ψητό · the signature</p>
+          <p data-i18n="feat_desc">Our one-word reason to come. Charcoal-grilled the old way, with nothing but olive oil, oregano, and lemon. If it's your first time at 90 Moires, start here.</p>
+        </div>
+        <div class="price-block">
+          <div class="amt">17.00</div>
+          <div class="lbl" data-i18n="feat_label">the whole reason</div>
+        </div>
+      </div>
+
+      <div class="menu-section reveal">
+        <h3><span data-i18n="cat_salads">Salads</span> <span class="gr">· Σαλάτες</span></h3>
+        
+        <div class="menu-items">
+          
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_hortarakia">Mountain greens</span>
+              
+            </div>
+            <div class="price">6.50</div>
+          </div>
+          <div class="menu-item menu-item--feat">
+            <div class="name">
+              <span data-i18n="item_salad_90">90 Moires salad</span>
+              <span class="el" data-i18n="item_salad_90_sub">Lettuce, lola, raisins, cherry tomato, goji berries, plum, cranberry, iceberg, katiki cheese from Domokos</span>
+            </div>
+            <div class="price">9.50</div>
+          </div>
+          <div class="menu-item menu-item--feat">
+            <div class="name">
+              <span data-i18n="item_salad_sea">Sea salad</span>
+              <span class="el" data-i18n="item_salad_sea_sub">Tomato, cucumber, fresh onion, marinated anchovies, basil oil, parsley</span>
+            </div>
+            <div class="price">9.50</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_zucchini">Boiled zucchini</span>
+              
+            </div>
+            <div class="price">5.50</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_beetroot">Fresh beetroot with garlic</span>
+              
+            </div>
+            <div class="price">5.50</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_cucumber_tomato">Cucumber &amp; tomato</span>
+              
+            </div>
+            <div class="price">6.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_greek_salad">Greek salad</span>
+              
+            </div>
+            <div class="price">9.50</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_boiled_vegetables">Boiled seasonal vegetables</span>
+              
+            </div>
+            <div class="price">9.50</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_mixed_salad">Mixed salad</span>
+              
+            </div>
+            <div class="price">7.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_cabbage_carrot">Cabbage &amp; carrot</span>
+              
+            </div>
+            <div class="price">5.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_lettuce_dill">Lettuce with dill &amp; spring onion</span>
+              
+            </div>
+            <div class="price">5.00</div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-section reveal">
+        <h3><span data-i18n="cat_appetizers">Something to start</span> <span class="gr">· Κάτι για την όρεξη</span></h3>
+        
+        <div class="menu-items">
+          
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_tzatziki">Tzatziki</span>
+              
+            </div>
+            <div class="price">5.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_tirokafteri">Tirokafteri '90 Moires'</span>
+              
+            </div>
+            <div class="price">5.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_taramosalata">White taramosalata</span>
+              
+            </div>
+            <div class="price">5.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_skordalia">Skordalia (garlic dip)</span>
+              
+            </div>
+            <div class="price">5.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_fries">Hand-cut fries</span>
+              
+            </div>
+            <div class="price">5.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_feta_barrel">Barrel-aged feta</span>
+              
+            </div>
+            <div class="price">5.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_crab_salad">Crab salad</span>
+              
+            </div>
+            <div class="price">8.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_octopus_oil">Octopus in vinegar &amp; oil</span>
+              
+            </div>
+            <div class="price">14.00</div>
+          </div>
+          <div class="menu-item menu-item--feat">
+            <div class="name">
+              <span data-i18n="item_octopus_grilled">Grilled octopus</span>
+              
+            </div>
+            <div class="price">17.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_anchovy_marinated">Marinated anchovies</span>
+              
+            </div>
+            <div class="price">8.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_dakos">Dakos (Cretan rusk)</span>
+              
+            </div>
+            <div class="price">8.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_giants">Giant beans</span>
+              
+            </div>
+            <div class="price">9.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_fava">Fava (yellow split pea purée)</span>
+              
+            </div>
+            <div class="price">6.50</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_potato_salad">Potato salad</span>
+              
+            </div>
+            <div class="price">6.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_olives">Olives</span>
+              
+            </div>
+            <div class="price">4.00</div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-section reveal">
+        <h3><span data-i18n="cat_grilled_meats">Grilled meats</span> <span class="gr">· Κρεατικά σχάρας</span></h3>
+        
+        <div class="menu-items">
+          
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_veal_chop">Milk-fed veal chop</span>
+              
+            </div>
+            <div class="price">17.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_pork_chop">Pork chop</span>
+              
+            </div>
+            <div class="price">10.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_pork_tenderloin">Pork tenderloin</span>
+              
+            </div>
+            <div class="price">13.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_chicken_fillet">Chicken fillet</span>
+              
+            </div>
+            <div class="price">12.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_bifteki">Bifteki (grilled patty)</span>
+              
+            </div>
+            <div class="price">12.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_mani_sausage">Mani sausage</span>
+              
+            </div>
+            <div class="price">9.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_chicken_souvlaki">Chicken souvlaki</span>
+              
+            </div>
+            <div class="price">11.00</div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-section reveal">
+        <h3><span data-i18n="cat_traditional">Traditional dishes</span> <span class="gr">· Παραδοσιακά πιάτα</span></h3>
+        
+        <div class="menu-items">
+          
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_lahanodolmades">Cabbage rolls (lahanodolmades)</span>
+              
+            </div>
+            <div class="price">10.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_soutzoukakia">Soutzoukakia (Smyrna meatballs)</span>
+              
+            </div>
+            <div class="price">10.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_veal_red">Veal in red sauce</span>
+              
+            </div>
+            <div class="price">14.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_veal_lemon">Veal with lemon sauce</span>
+              
+            </div>
+            <div class="price">14.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_rooster_wine">Rooster in wine sauce</span>
+              
+            </div>
+            <div class="price">13.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_ladera">Vegetable stew of the day</span>
+              
+            </div>
+            <div class="price">9.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_moussaka">Moussaka</span>
+              
+            </div>
+            <div class="price">10.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_lamb_oven">Oven-baked lamb</span>
+              
+            </div>
+            <div class="price">14.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_pasta_sauce">Pasta with tomato sauce</span>
+              
+            </div>
+            <div class="price">8.50</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_meatballs">Keftedakia (meatballs)</span>
+              
+            </div>
+            <div class="price">9.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_cuttlefish_stifado">Cuttlefish stifado</span>
+              
+            </div>
+            <div class="price">14.00</div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-section reveal">
+        <h3><span data-i18n="cat_seafood_plates">Seafood delights</span> <span class="gr">· Θαλασσινές νοστιμιές</span></h3>
+        
+        <div class="menu-items">
+          
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_fish_soup">Fish soup</span>
+              
+            </div>
+            <div class="price">12.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_whitebait">Whitebait (maridaki)</span>
+              
+            </div>
+            <div class="price">9.50</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_sardines">Sardines</span>
+              
+            </div>
+            <div class="price">9.50</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_anchovies_fresh">Fresh anchovies</span>
+              
+            </div>
+            <div class="price">9.50</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_calamari_fresh">Fresh calamari</span>
+              
+            </div>
+            <div class="price">12.50</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_shrimp_fried">Fried shrimp</span>
+              
+            </div>
+            <div class="price">14.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_shrimp_grilled">Grilled shrimp</span>
+              
+            </div>
+            <div class="price">14.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_shrimp_small">Fresh baby shrimp</span>
+              
+            </div>
+            <div class="price">11.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_red_mullet_portion">Red mullet portion (350g)</span>
+              
+            </div>
+            <div class="price">16.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_shrimp_pasta">Shrimp pasta</span>
+              
+            </div>
+            <div class="price">18.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_shrimp_saganaki">Shrimp saganaki</span>
+              
+            </div>
+            <div class="price">18.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_sea_bream_menu">Sea bream menu</span>
+              
+            </div>
+            <div class="price">16.00</div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-section reveal menu-section--kilo">
+        <h3><span data-i18n="cat_seafood_kilo">Seafood by the kilo</span> <span class="gr">· Θαλασσινά με το κιλό</span></h3>
+        <p class="kilo-note" data-i18n="kilo_banner">Priced per kilo · the catch is weighed in front of you</p>
+        <div class="menu-items">
+          
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_fagri">Red porgy (fagri)</span>
+              
+            </div>
+            <div class="price price--kg">60.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_sargos">White bream (sargos)</span>
+              
+            </div>
+            <div class="price price--kg">60.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_sfyrida">White grouper (sfyrida)</span>
+              
+            </div>
+            <div class="price price--kg">60.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_synagrida">Dentex (synagrida)</span>
+              
+            </div>
+            <div class="price price--kg">60.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_rofos">Dusky grouper (rofos)</span>
+              
+            </div>
+            <div class="price price--kg">60.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_steira">Corb (steira)</span>
+              
+            </div>
+            <div class="price price--kg">60.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_lithrinia">Pandora (lithrinia)</span>
+              
+            </div>
+            <div class="price price--kg">60.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_barbouni">Red mullet (barbouni)</span>
+              
+            </div>
+            <div class="price price--kg">60.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_bakalaos">Cod (bakaliaros)</span>
+              
+            </div>
+            <div class="price price--kg">50.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_calamari_kilo">Fresh squid</span>
+              
+            </div>
+            <div class="price price--kg">50.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_kotsomoura">Striped red mullet (kotsomoura)</span>
+              
+            </div>
+            <div class="price price--kg">50.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_shrimp_laconia">Fresh Laconian shrimp</span>
+              
+            </div>
+            <div class="price price--kg">70.00</div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-section reveal" style="grid-column: 1 / -1;">
+        <h3><span data-i18n="cat_extras">From the kitchen</span> <span class="gr">· Από την κουζίνα</span></h3>
+        
+        <div class="menu-items">
+          
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_olive_oil">Olive oil 50ml</span>
+              
+            </div>
+            <div class="price">1.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_mani_bread">Grilled bread with Mani olive oil</span>
+              
+            </div>
+            <div class="price">1.00</div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-section reveal" style="grid-column: 1 / -1;">
+        <h3><span data-i18n="cat_drinks">Drinks</span> <span class="gr">· Ποτά</span></h3>
+        
+        <div class="menu-items menu-items--two-col">
+          
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_beer">Beer</span>
+              
+            </div>
+            <div class="price">4.50</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_ouzo">Ouzo (carafe)</span>
+              
+            </div>
+            <div class="price">9.50</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_ouzo_pitsiladi">Ouzo Pitsiladi</span>
+              
+            </div>
+            <div class="price">14.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_ouzo_mini">Ouzo miniature</span>
+              
+            </div>
+            <div class="price">3.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_tsipouro">Tsipouro (carafe)</span>
+              
+            </div>
+            <div class="price">10.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_tsipouro_mini">Tsipouro miniature</span>
+              
+            </div>
+            <div class="price">3.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_spirits">Whiskey, Vodka, Campari</span>
+              
+            </div>
+            <div class="price">7.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_metaxa">Metaxa brandy</span>
+              
+            </div>
+            <div class="price">6.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_soft_drinks">Soft drinks</span>
+              
+            </div>
+            <div class="price">3.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_water_small">Mineral water 0.5L</span>
+              
+            </div>
+            <div class="price">0.50</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_water_large">Mineral water 1L</span>
+              
+            </div>
+            <div class="price">1.50</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_sparkling_small">Sparkling water 330ml</span>
+              
+            </div>
+            <div class="price">3.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_sparkling_large">Sparkling water 1L</span>
+              
+            </div>
+            <div class="price">5.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_fresh_juice">Fresh juice</span>
+              
+            </div>
+            <div class="price">3.50</div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-section reveal" style="grid-column: 1 / -1;">
+        <h3><span data-i18n="cat_wines">Wines</span> <span class="gr">· Κρασιά</span></h3>
+        
+        <div class="menu-items menu-items--two-col">
+          
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_house_wine_half">House wine (half-kilo)</span>
+              
+            </div>
+            <div class="price">5.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_wine_glass">Glass of wine</span>
+              
+            </div>
+            <div class="price">3.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_retsina">Retsina Malamatina (½ kilo)</span>
+              
+            </div>
+            <div class="price">7.50</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_oinos_laikos">Oinos Laikos, Tsimpidi (white / rosé)</span>
+              
+            </div>
+            <div class="price">7.50</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_kydonitsa_lacovino">Kydonitsa Lacovino</span>
+              <span class="el" data-i18n="item_kydonitsa_lacovino_sub">Laconia · Kydonitsa variety</span>
+            </div>
+            <div class="price">26.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_mantinia_tselepos">Mantinia Tselepos</span>
+              <span class="el" data-i18n="item_mantinia_tselepos_sub">PDO Mantinia · Moschofilero</span>
+            </div>
+            <div class="price">27.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_stone_hills_palivou">Stone Hills Palivou</span>
+              <span class="el" data-i18n="item_stone_hills_palivou_sub">Peloponnese · Malagouzia, Chardonnay</span>
+            </div>
+            <div class="price">29.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_vivlia_chora">Vivlia Chora Estate</span>
+              <span class="el" data-i18n="item_vivlia_chora_sub">Pangeo · Assyrtiko, Sauvignon Blanc</span>
+            </div>
+            <div class="price">35.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_malagouzia_gerovassiliou">Malagouzia Gerovassiliou</span>
+              <span class="el" data-i18n="item_malagouzia_gerovassiliou_sub">Epanomi · Malagouzia</span>
+            </div>
+            <div class="price">37.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_theodorakakos_ka">Theodorakakos KA</span>
+              <span class="el" data-i18n="item_theodorakakos_ka_sub">Laconia · Kydonitsa, Agiorgitiko (organic)</span>
+            </div>
+            <div class="price">20.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_idylle_achinos">Idylle d'Achinos La Tour Melas</span>
+              <span class="el" data-i18n="item_idylle_achinos_sub">Phthiotida · Syrah, Grenache, Agiorgitiko</span>
+            </div>
+            <div class="price">37.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_theodorakakos_estate">Theodorakakos Estate</span>
+              <span class="el" data-i18n="item_theodorakakos_estate_sub">Laconia · Mavroudi (organic)</span>
+            </div>
+            <div class="price">19.00</div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-section reveal">
+        <h3><span data-i18n="cat_desserts">Desserts</span> <span class="gr">· Επιδόρπια</span></h3>
+        
+        <div class="menu-items">
+          
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_yogurt_honey">Yogurt with honey or spoon sweet</span>
+              
+            </div>
+            <div class="price">5.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_ice_cream">Ice cream (scoop)</span>
+              
+            </div>
+            <div class="price">3.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_orange_pie">Orange pie</span>
+              
+            </div>
+            <div class="price">5.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_walnut_pie">Walnut pie</span>
+              
+            </div>
+            <div class="price">5.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_baklava">Baklava</span>
+              
+            </div>
+            <div class="price">5.00</div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-section reveal" style="grid-column: 1 / -1;">
+        <h3><span data-i18n="cat_coffee">Coffee</span> <span class="gr">· Καφέδες</span></h3>
+        
+        <div class="menu-items menu-items--two-col">
+          
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_espresso">Espresso</span>
+              
+            </div>
+            <div class="price">2.50</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_freddo">Freddo espresso</span>
+              
+            </div>
+            <div class="price">3.00</div>
+          </div>
+          <div class="menu-item">
+            <div class="name">
+              <span data-i18n="item_cappuccino">Cappuccino</span>
+              
+            </div>
+            <div class="price">3.00</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========= VISIT ========= -->
+<section class="visit" id="visit">
+  <div class="container visit-grid">
+    <div class="reveal">
+      <span class="section-eyebrow" style="color: var(--gold);" data-i18n="visit_eyebrow">Visit Us</span>
+      <h2 data-i18n-html="visit_title_html">Come for the <em>octopus.</em></h2>
+      <p class="visit-intro" data-i18n="visit_intro">We're at the corner of Prothypourgou Tzanni Tzannetaki, right on the Gythio harbor. Look for the blue chairs, the lemon tree, and the smoke from the charcoal grill. If you smell oregano and sea salt, you're close.</p>
+      <a class="btn btn-primary" href="https://maps.app.goo.gl/KPVW5H56TnYf3G2Z7" target="_blank" rel="noopener" style="background: var(--gold); color: var(--sea-ink);"><span data-i18n="visit_btn">Open in Google Maps</span> <span class="arrow">→</span></a>
+    </div>
+
+    <div class="reveal">
+      <div class="info-block">
+        <div class="lbl" data-i18n="visit_where_lbl">Where</div>
+        <div class="val">Πρωθυπουργού Τζαννή Τζαννετάκη, Γύθειο 232 00<br/>Γύθειο · Gythio 232 00</div>
+        <div class="sub" data-i18n="visit_where_sub">Laconia · Mani · Peloponnese</div>
+      </div>
+
+      <div class="info-block">
+        <div class="lbl" data-i18n="visit_phone_lbl">Phone</div>
+        <div class="val"><a href="tel:+302733025425">+30 27330 25425</a></div>
+        <div class="sub" data-i18n="visit_phone_sub">call ahead for larger groups or whole fish</div>
+      </div>
+
+      <div class="info-block">
+        <div class="lbl" data-i18n="visit_hours_lbl">Hours</div>
+        <table class="hours-table" style="margin-top: 6px;">
+          <tr><td data-i18n="day_every">Every day</td><td>10:00 – 23:30</td></tr>
+        </table>
+        <div class="sub" style="margin-top: 8px;" data-i18n="visit_hours_note">every day, lunch and dinner</div>
+      </div>
+
+      <div class="info-block">
+        <div class="lbl" data-i18n="visit_find_lbl">Find us</div>
+        <div class="val">
+          <a href="https://maps.app.goo.gl/KPVW5H56TnYf3G2Z7" target="_blank" rel="noopener">Google Maps</a> &nbsp;·&nbsp;
+          <a href="https://www.instagram.com/90.moires?igsh=cHVyZHRsOXl4dWZs" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= FOOTER ========= -->
+<footer>
+  <div class="container foot">
+    <a class="brand" href="#top">
+      <span class="brand-mark">90</span>
+      <span>Ταβέρνα 90 Μοίρες · Gythio</span>
+    </a>
+    <div class="foot-note" data-i18n="foot_tagline">&quot;Καλή όρεξη — and no phones at the table.&quot;</div>
+    <div class="foot-links">
+      <a href="#menu" data-i18n="foot_menu">Menu</a>
+      <a href="#visit" data-i18n="foot_visit">Visit</a>
+      <a href="#" data-i18n="foot_privacy">Privacy</a>
+    </div>
+  </div>
+  <div class="container" style="text-align: center; margin-top: 30px; font-size: 12px; opacity: 0.55; letter-spacing: 0.1em;">
+    © <span id="yr"></span> · <span data-i18n="foot_copyright">Since 1959 · Made with charcoal, salt water, and patience</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  const TRANSLATIONS = {"en":{"meta_title":"Taverna 90 Moires — Fish & Traditional · Gythio, Mani · since 1959","meta_desc":"A family fish taverna on the Laconian shore. Three generations of fishermen, cooks, and hosts on Prothypourgou Tzanni Tzannetaki, Gythio — since 1959.","nav_story":"Our Story","nav_signature":"The Octopus","nav_menu":"Menu","nav_visit":"Visit","nav_cta":"Find Us","hero_eyebrow":"90 Μοίρες · Gythio · Mani · since 1959","hero_title_html":"A family fish taverna<br/><span class=\"accent\">at the corner</span> of<br/>the Laconian shore, <span class=\"swash\">&amp;</span><br/><span class=\"accent\">the boats that feed it.</span>","hero_lede":"Three generations of fishermen, cooks, and hosts. The catch comes in from the gulf; the oil is pressed in the hills; the charcoal never quite goes out. No shortcuts — just the sea, the grill, the family.","hero_btn_menu":"See the Menu","hero_btn_story":"What's 90 Moires?","strip_1":"Daily catch","strip_2":"Laconian olive oil","strip_3":"House wine from the barrel","strip_4":"Family recipes since 1959","story_eyebrow":"Our Story","story_title_html":"A corner on the <em>Laconian Gulf.</em>","story_p1":"Ninety degrees. The corner where our doors meet the harbor road — and the compass bearing our boats take out of Gythio every dawn. Three generations, same angle, same family, since 1959.","story_p2":"The grandfather fished. The son cooked. The grandchildren still do both. What comes out of the water at six in the morning is on a plate by twelve. What doesn't get caught that day, doesn't get served. That's the whole logic of this place.","story_p3":"Our oil is pressed in the Mani hills above us. Our wine is drawn from the barrel. Our fish is priced by the kilo because the fish decides what it weighs, not us. Sit at a table on Tzanni Tzannetaki, order what the day brought in, watch the harbor. That's dinner.","fact_1_num":"65+","fact_1_lbl":"years at the same corner","fact_2_num":"3","fact_2_lbl":"generations of cooks","fact_3_num":"12+","fact_3_lbl":"kinds of fresh fish by the kilo","fact_4_num":"90°","fact_4_lbl":"east by dawn, every morning","sig_eyebrow":"Σήμα Κατατεθέν · The Signature","sig_title_html":"Grilled <em>Octopus.</em>","sig_sub":"the way it's done on the Mani coast","sig_intro":"Caught in the gulf, hung on the line to air-cure, then laid on the charcoal. No marinade — just salt, olive oil, oregano, a squeeze of lemon. Tender on the inside, blistered on the outside, and unmistakable. If you only eat one thing at 90 Moires, eat this.","trio_1_title":"The Catch","trio_1_gr":"Από τη θάλασσα","trio_1_desc":"Sourced fresh from the small boats of Gythio and the broader Laconian gulf. What arrives in the kitchen in the morning is what's on the menu that night — not a day later.","trio_2_title":"The Fire","trio_2_gr":"Στα κάρβουνα","trio_2_desc":"Real charcoal, never gas. The octopus spends its time on the wire just long enough for the edges to blister, for the inside to stay soft, for the smoke to find every tentacle.","trio_3_title":"The Table","trio_3_gr":"Στο τραπέζι","trio_3_desc":"Served on a simple plate with olive oil, oregano, a wedge of lemon, and a half-kilo of house wine — because the wine and the octopus were made for each other, and everyone in the Mani knows it.","menu_eyebrow":"Κατάλογος · Menu","menu_title_html":"The <em>Menu.</em>","menu_intro":"Prices in euros. The fish counter changes daily — ask your server what came in this morning. Seafood by the kilo is exactly that: the fish is weighed in front of you, priced per kilo, cooked however you like.","feat_title_html":"Grilled <em>Octopus</em>","feat_sub":"Χταπόδι ψητό · the signature","feat_desc":"Our one-word reason to come. Charcoal-grilled the old way, with nothing but olive oil, oregano, and lemon. If it's your first time at 90 Moires, start here.","feat_label":"the whole reason","kilo_banner":"Priced per kilo · the catch is weighed in front of you","visit_eyebrow":"Visit Us","visit_title_html":"Come for the <em>octopus.</em>","visit_intro":"We're at the corner of Prothypourgou Tzanni Tzannetaki, right on the Gythio harbor. Look for the blue chairs, the lemon tree, and the smoke from the charcoal grill. If you smell oregano and sea salt, you're close.","visit_btn":"Open in Google Maps","visit_where_lbl":"Where","visit_where_sub":"Laconia · Mani · Peloponnese","visit_phone_lbl":"Phone","visit_phone_sub":"call ahead for larger groups or whole fish","visit_hours_lbl":"Hours","visit_hours_note":"every day, lunch and dinner","day_every":"Every day","visit_find_lbl":"Find us","foot_tagline":"\"Καλή όρεξη — and no phones at the table.\"","foot_menu":"Menu","foot_visit":"Visit","foot_privacy":"Privacy","foot_copyright":"Since 1959 · Made with charcoal, salt water, and patience","cat_salads":"Salads","item_hortarakia":"Mountain greens","item_salad_90":"90 Moires salad","item_salad_90_sub":"Lettuce, lola, raisins, cherry tomato, goji berries, plum, cranberry, iceberg, katiki cheese from Domokos","item_salad_sea":"Sea salad","item_salad_sea_sub":"Tomato, cucumber, fresh onion, marinated anchovies, basil oil, parsley","item_zucchini":"Boiled zucchini","item_beetroot":"Fresh beetroot with garlic","item_cucumber_tomato":"Cucumber & tomato","item_greek_salad":"Greek salad","item_boiled_vegetables":"Boiled seasonal vegetables","item_mixed_salad":"Mixed salad","item_cabbage_carrot":"Cabbage & carrot","item_lettuce_dill":"Lettuce with dill & spring onion","cat_appetizers":"Something to start","item_tzatziki":"Tzatziki","item_tirokafteri":"Tirokafteri '90 Moires'","item_taramosalata":"White taramosalata","item_skordalia":"Skordalia (garlic dip)","item_fries":"Hand-cut fries","item_feta_barrel":"Barrel-aged feta","item_crab_salad":"Crab salad","item_octopus_oil":"Octopus in vinegar & oil","item_octopus_grilled":"Grilled octopus","item_anchovy_marinated":"Marinated anchovies","item_dakos":"Dakos (Cretan rusk)","item_giants":"Giant beans","item_fava":"Fava (yellow split pea purée)","item_potato_salad":"Potato salad","item_olives":"Olives","cat_grilled_meats":"Grilled meats","item_veal_chop":"Milk-fed veal chop","item_pork_chop":"Pork chop","item_pork_tenderloin":"Pork tenderloin","item_chicken_fillet":"Chicken fillet","item_bifteki":"Bifteki (grilled patty)","item_mani_sausage":"Mani sausage","item_chicken_souvlaki":"Chicken souvlaki","cat_traditional":"Traditional dishes","item_lahanodolmades":"Cabbage rolls (lahanodolmades)","item_soutzoukakia":"Soutzoukakia (Smyrna meatballs)","item_veal_red":"Veal in red sauce","item_veal_lemon":"Veal with lemon sauce","item_rooster_wine":"Rooster in wine sauce","item_ladera":"Vegetable stew of the day","item_moussaka":"Moussaka","item_lamb_oven":"Oven-baked lamb","item_pasta_sauce":"Pasta with tomato sauce","item_meatballs":"Keftedakia (meatballs)","item_cuttlefish_stifado":"Cuttlefish stifado","cat_seafood_plates":"Seafood delights","item_fish_soup":"Fish soup","item_whitebait":"Whitebait (maridaki)","item_sardines":"Sardines","item_anchovies_fresh":"Fresh anchovies","item_calamari_fresh":"Fresh calamari","item_shrimp_fried":"Fried shrimp","item_shrimp_grilled":"Grilled shrimp","item_shrimp_small":"Fresh baby shrimp","item_red_mullet_portion":"Red mullet portion (350g)","item_shrimp_pasta":"Shrimp pasta","item_shrimp_saganaki":"Shrimp saganaki","item_sea_bream_menu":"Sea bream menu","cat_seafood_kilo":"Seafood by the kilo","item_fagri":"Red porgy (fagri)","item_sargos":"White bream (sargos)","item_sfyrida":"White grouper (sfyrida)","item_synagrida":"Dentex (synagrida)","item_rofos":"Dusky grouper (rofos)","item_steira":"Corb (steira)","item_lithrinia":"Pandora (lithrinia)","item_barbouni":"Red mullet (barbouni)","item_bakalaos":"Cod (bakaliaros)","item_calamari_kilo":"Fresh squid","item_kotsomoura":"Striped red mullet (kotsomoura)","item_shrimp_laconia":"Fresh Laconian shrimp","cat_extras":"From the kitchen","item_olive_oil":"Olive oil 50ml","item_mani_bread":"Grilled bread with Mani olive oil","cat_drinks":"Drinks","item_beer":"Beer","item_ouzo":"Ouzo (carafe)","item_ouzo_pitsiladi":"Ouzo Pitsiladi","item_ouzo_mini":"Ouzo miniature","item_tsipouro":"Tsipouro (carafe)","item_tsipouro_mini":"Tsipouro miniature","item_spirits":"Whiskey, Vodka, Campari","item_metaxa":"Metaxa brandy","item_soft_drinks":"Soft drinks","item_water_small":"Mineral water 0.5L","item_water_large":"Mineral water 1L","item_sparkling_small":"Sparkling water 330ml","item_sparkling_large":"Sparkling water 1L","item_fresh_juice":"Fresh juice","cat_wines":"Wines","item_house_wine_half":"House wine (half-kilo)","item_wine_glass":"Glass of wine","item_retsina":"Retsina Malamatina (½ kilo)","item_oinos_laikos":"Oinos Laikos, Tsimpidi (white / rosé)","item_kydonitsa_lacovino":"Kydonitsa Lacovino","item_kydonitsa_lacovino_sub":"Laconia · Kydonitsa variety","item_mantinia_tselepos":"Mantinia Tselepos","item_mantinia_tselepos_sub":"PDO Mantinia · Moschofilero","item_stone_hills_palivou":"Stone Hills Palivou","item_stone_hills_palivou_sub":"Peloponnese · Malagouzia, Chardonnay","item_vivlia_chora":"Vivlia Chora Estate","item_vivlia_chora_sub":"Pangeo · Assyrtiko, Sauvignon Blanc","item_malagouzia_gerovassiliou":"Malagouzia Gerovassiliou","item_malagouzia_gerovassiliou_sub":"Epanomi · Malagouzia","item_theodorakakos_ka":"Theodorakakos KA","item_theodorakakos_ka_sub":"Laconia · Kydonitsa, Agiorgitiko (organic)","item_idylle_achinos":"Idylle d'Achinos La Tour Melas","item_idylle_achinos_sub":"Phthiotida · Syrah, Grenache, Agiorgitiko","item_theodorakakos_estate":"Theodorakakos Estate","item_theodorakakos_estate_sub":"Laconia · Mavroudi (organic)","cat_desserts":"Desserts","item_yogurt_honey":"Yogurt with honey or spoon sweet","item_ice_cream":"Ice cream (scoop)","item_orange_pie":"Orange pie","item_walnut_pie":"Walnut pie","item_baklava":"Baklava","cat_coffee":"Coffee","item_espresso":"Espresso","item_freddo":"Freddo espresso","item_cappuccino":"Cappuccino"},"el":{"meta_title":"Ταβέρνα 90 Μοίρες — Ψάρι & Παραδοσιακά · Γύθειο, Μάνη · από το 1959","meta_desc":"Οικογενειακή ψαροταβέρνα στον Λακωνικό Κόλπο. Τρεις γενιές ψαράδων, μαγείρων και οικοδεσποτών στην Πρωθυπουργού Τζαννή Τζαννετάκη, στο Γύθειο — από το 1959.","nav_story":"Η Ιστορία μας","nav_signature":"Το Χταπόδι","nav_menu":"Κατάλογος","nav_visit":"Βρείτε μας","nav_cta":"Που είμαστε","hero_eyebrow":"90 Μοίρες · Γύθειο · Μάνη · από το 1959","hero_title_html":"Μια οικογενειακή<br/>ψαροταβέρνα <span class=\"accent\">στη γωνιά</span><br/>του Λακωνικού, <span class=\"swash\">&amp;</span><br/><span class=\"accent\">τα καΐκια που τη θρέφουν.</span>","hero_lede":"Τρεις γενιές ψαράδων, μαγείρων και οικοδεσποτών. Η ψαριά μπαίνει από τον κόλπο· το λάδι πατιέται στους λόφους· τα κάρβουνα δεν σβήνουν ποτέ τελείως. Χωρίς συμβιβασμούς — μόνο η θάλασσα, η σχάρα, η οικογένεια.","hero_btn_menu":"Δείτε τον Κατάλογο","hero_btn_story":"Τι είναι οι 90 Μοίρες;","strip_1":"Φρέσκια ψαριά","strip_2":"Λακωνικό ελαιόλαδο","strip_3":"Χύμα κρασί από το βαρέλι","strip_4":"Οικογενειακές συνταγές από το 1959","story_eyebrow":"Η Ιστορία μας","story_title_html":"Μια γωνιά στον <em>Λακωνικό Κόλπο.</em>","story_p1":"Ενενήντα μοίρες. Η γωνιά όπου η πόρτα μας συναντά τον δρόμο του λιμανιού — και η πυξίδα που οι βάρκες μας παίρνουν από το Γύθειο κάθε αυγή. Τρεις γενιές, ίδια μοίρα, ίδια οικογένεια, από το 1959.","story_p2":"Ο παππούς ψάρευε. Ο γιος μαγείρευε. Τα εγγόνια κάνουν και τα δύο. Ό,τι βγαίνει από το νερό στις έξι το πρωί είναι στο πιάτο μέχρι τις δώδεκα. Ό,τι δεν πιαστεί εκείνη τη μέρα, δεν σερβίρεται. Αυτή είναι όλη η λογική.","story_p3":"Το λάδι μας πατιέται στους λόφους της Μάνης από πάνω μας. Το κρασί μας τραβιέται από το βαρέλι. Το ψάρι πληρώνεται με το κιλό γιατί το ψάρι αποφασίζει πόσο ζυγίζει, όχι εμείς. Καθίστε σε ένα τραπέζι στην Τζαννετάκη, παραγγείλετε ό,τι έφερε η μέρα, κοιτάξτε το λιμάνι. Αυτό είναι το δείπνο.","fact_1_num":"65+","fact_1_lbl":"χρόνια στην ίδια γωνιά","fact_2_num":"3","fact_2_lbl":"γενιές μαγείρων","fact_3_num":"12+","fact_3_lbl":"είδη φρέσκου ψαριού με το κιλό","fact_4_num":"90°","fact_4_lbl":"ανατολικά κάθε ξημέρωμα","sig_eyebrow":"Σήμα Κατατεθέν","sig_title_html":"Χταπόδι <em>ψητό.</em>","sig_sub":"όπως το φτιάχνουν στη Μάνη","sig_intro":"Πιασμένο στον κόλπο, κρεμασμένο στο σχοινί να αεριστεί, και μετά πάνω στα κάρβουνα. Χωρίς μαρινάδα — αλάτι, ελαιόλαδο, ρίγανη, μια φέτα λεμόνι. Τρυφερό μέσα, καμένο στις άκρες, αξέχαστο. Αν θα φάτε ένα πράγμα στις 90 Μοίρες, αυτό.","trio_1_title":"Η Ψαριά","trio_1_gr":"Από τη θάλασσα","trio_1_desc":"Φρέσκα από τα μικρά καΐκια του Γυθείου και του ευρύτερου Λακωνικού κόλπου. Ό,τι φτάνει στην κουζίνα το πρωί είναι στον κατάλογο εκείνο το βράδυ — όχι μια μέρα μετά.","trio_2_title":"Η Φωτιά","trio_2_gr":"Στα κάρβουνα","trio_2_desc":"Πραγματικά κάρβουνα, ποτέ γκάζι. Το χταπόδι μένει στη σχάρα όσο χρειάζεται — τόσο ώστε οι άκρες να καρβουνιάσουν, το μέσα να μείνει μαλακό, ο καπνός να πιάσει κάθε πλοκάμι.","trio_3_title":"Το Τραπέζι","trio_3_gr":"Στο τραπέζι","trio_3_desc":"Σερβίρεται απλά, με ελαιόλαδο, ρίγανη, ένα κομμάτι λεμόνι, και μισό κιλό χύμα κρασί — γιατί το κρασί και το χταπόδι γεννήθηκαν μαζί, κι αυτό στη Μάνη το ξέρουν όλοι.","menu_eyebrow":"Κατάλογος","menu_title_html":"Ο <em>Κατάλογος.</em>","menu_intro":"Τιμές σε ευρώ. Ο πάγκος του ψαριού αλλάζει κάθε μέρα — ρωτήστε τον σερβιτόρο τι ήρθε σήμερα. Τα ψάρια με το κιλό είναι ακριβώς αυτό: ζυγίζονται μπροστά σας, τιμολογούνται ανά κιλό, μαγειρεύονται όπως θέλετε.","feat_title_html":"Χταπόδι <em>ψητό</em>","feat_sub":"το σήμα κατατεθέν","feat_desc":"Ο λόγος να έρθεις. Στα κάρβουνα όπως γίνεται παλιά, με λάδι, ρίγανη, λεμόνι — τίποτα άλλο. Αν είναι η πρώτη σας φορά στις 90 Μοίρες, ξεκινήστε από εδώ.","feat_label":"ο λόγος που ήρθες","kilo_banner":"Με το κιλό · το ψάρι ζυγίζεται μπροστά σας","visit_eyebrow":"Βρείτε μας","visit_title_html":"Ελάτε για το <em>χταπόδι.</em>","visit_intro":"Είμαστε στη γωνία της Πρωθυπουργού Τζαννή Τζαννετάκη, πάνω στο λιμάνι του Γυθείου. Ψάξτε για τις μπλε καρέκλες, τη λεμονιά, και τον καπνό από τη σχάρα. Αν μυρίζει ρίγανη και θαλασσινό αλάτι, είστε κοντά.","visit_btn":"Άνοιγμα στο Google Maps","visit_where_lbl":"Διεύθυνση","visit_where_sub":"Λακωνία · Μάνη · Πελοπόννησος","visit_phone_lbl":"Τηλέφωνο","visit_phone_sub":"καλέστε για μεγάλες παρέες ή για ολόκληρο ψάρι","visit_hours_lbl":"Ώρες","visit_hours_note":"κάθε μέρα, μεσημέρι και βράδυ","day_every":"Κάθε μέρα","visit_find_lbl":"Βρείτε μας","foot_tagline":"«Καλή όρεξη — και κανένα κινητό στο τραπέζι.»","foot_menu":"Κατάλογος","foot_visit":"Βρείτε μας","foot_privacy":"Απόρρητο","foot_copyright":"Από το 1959 · Φτιαγμένο με κάρβουνο, αλμυρό νερό και υπομονή","cat_salads":"Σαλάτες","item_hortarakia":"Χορταράκια του βουνού","item_salad_90":"Σαλάτα 90 Μοίρες","item_salad_90_sub":"Μαρούλι, λόλα, σταφίδες, ντοματίνια, goji berry, δαμάσκηνο, cranberry, iceberg, κατίκι Δομοκού","item_salad_sea":"Σαλάτα Θάλασσα","item_salad_sea_sub":"Ντομάτα, αγγούρι, κρεμμυδάκι φρέσκο, γαύρος μαρινάτος, λάδι βασιλικού, μαϊντανός","item_zucchini":"Κολοκύθια βραστά","item_beetroot":"Παντζάρια φρέσκα με σκόρδο","item_cucumber_tomato":"Αγγουροτομάτα","item_greek_salad":"Χωριάτικη","item_boiled_vegetables":"Βραστά λαχανικά","item_mixed_salad":"Ανάμεικτη","item_cabbage_carrot":"Λάχανο, καρότο","item_lettuce_dill":"Μαρούλι με άνηθο και φρέσκο κρεμμυδάκι","cat_appetizers":"Κάτι για την όρεξη","item_tzatziki":"Τζατζίκι","item_tirokafteri":"Τυροκαυτερή 90 μοίρες","item_taramosalata":"Ταραμοσαλάτα λευκή","item_skordalia":"Σκορδαλιά","item_fries":"Φρεσκοκομμένες πατάτες τηγανητές","item_feta_barrel":"Φέτα βαρελίσια","item_crab_salad":"Καβουροσαλάτα","item_octopus_oil":"Χταπόδι ξιδάτο σε λάδι","item_octopus_grilled":"Χταπόδι ψητό","item_anchovy_marinated":"Γαύρος μαρινάτος","item_dakos":"Ντάκος","item_giants":"Γίγαντες","item_fava":"Φάβα","item_potato_salad":"Πατατοσαλάτα","item_olives":"Ελιές","cat_grilled_meats":"Κρεατικά σχάρας","item_veal_chop":"Μπριζόλα μοσχαρίσια γάλακτος","item_pork_chop":"Μπριζόλα χοιρινή","item_pork_tenderloin":"Ψαρονέφρι","item_chicken_fillet":"Κοτόπουλο φιλέτο","item_bifteki":"Μπιφτέκι","item_mani_sausage":"Λουκάνικο Μάνης","item_chicken_souvlaki":"Κοτόπουλο σουβλάκι","cat_traditional":"Παραδοσιακά πιάτα","item_lahanodolmades":"Λαχανοντολμάδες","item_soutzoukakia":"Σουτζουκάκια","item_veal_red":"Μοσχάρι κοκκινιστό","item_veal_lemon":"Μοσχάρι λεμονάτο","item_rooster_wine":"Κόκκορας κρασάτος","item_ladera":"Λαδερά ημέρας","item_moussaka":"Μουσακάς","item_lamb_oven":"Αρνί στο φούρνο","item_pasta_sauce":"Μακαρόνια με σάλτσα","item_meatballs":"Κεφτεδάκια","item_cuttlefish_stifado":"Σουπιές στιφάδο","cat_seafood_plates":"Θαλασσινές νοστιμιές","item_fish_soup":"Ψαρόσουπα","item_whitebait":"Μαριδάκι","item_sardines":"Σαρδέλα","item_anchovies_fresh":"Γαύρος","item_calamari_fresh":"Καλαμαράκια φρέσκα","item_shrimp_fried":"Γαρίδες τηγανητές","item_shrimp_grilled":"Γαρίδες ψητές","item_shrimp_small":"Γαριδάκι φρέσκο","item_red_mullet_portion":"Κοτσομούρα μερίδα 350gr","item_shrimp_pasta":"Γαριδομακαρονάδα","item_shrimp_saganaki":"Γαρίδες σαγανάκι","item_sea_bream_menu":"Τσιπούρα μενού","cat_seafood_kilo":"Θαλασσινά με το κιλό","item_fagri":"Φαγκρί","item_sargos":"Σαργός","item_sfyrida":"Σφυρίδα","item_synagrida":"Συναγρίδα","item_rofos":"Ροφός","item_steira":"Στείρα","item_lithrinia":"Λιθρίνια","item_barbouni":"Μπαρμπούνια","item_bakalaos":"Βακαλάος","item_calamari_kilo":"Καλαμάρια φρέσκα","item_kotsomoura":"Κοτσομούρα","item_shrimp_laconia":"Γαρίδες φρέσκιες Λακωνικού","cat_extras":"Από την κουζίνα","item_olive_oil":"Ελαιόλαδο 50ml","item_mani_bread":"Ψητό ψωμί με ελαιόλαδο Μάνης","cat_drinks":"Ποτά","item_beer":"Μπύρα","item_ouzo":"Ούζο","item_ouzo_pitsiladi":"Ούζο Πιτσιλαδή","item_ouzo_mini":"Ούζο μινιατούρα","item_tsipouro":"Τσίπουρο","item_tsipouro_mini":"Τσίπουρο μινιατούρα","item_spirits":"Ουίσκι, Βότκα, Καμπάρι","item_metaxa":"Μεταξά","item_soft_drinks":"Αναψυκτικά","item_water_small":"Νερό 0.5L","item_water_large":"Νερό 1L","item_sparkling_small":"Ανθρακούχο 330ml","item_sparkling_large":"Ανθρακούχο 1L","item_fresh_juice":"Φρέσκος χυμός","cat_wines":"Κρασιά","item_house_wine_half":"Χύμα κρασί ½ κιλό","item_wine_glass":"Κρασί ποτήρι","item_retsina":"Ρετσίνα Μαλαμάτινα ½ κιλό","item_oinos_laikos":"Οίνος Λαϊκός, Τσιμπίδι (λευκό / ροζέ)","item_kydonitsa_lacovino":"Κυδωνίτσα Lacovino","item_kydonitsa_lacovino_sub":"ΠΓΕ Λακωνία · ποικιλία Κυδωνίτσα","item_mantinia_tselepos":"Μαντινεία Τσελέπου","item_mantinia_tselepos_sub":"ΠΟΠ Μαντινεία · ποικιλία Μοσχοφίλερο","item_stone_hills_palivou":"Πέτρινες Πλαγιές Παλυβού","item_stone_hills_palivou_sub":"ΠΓΕ Πελοπόννησος · Μαλαγουζιά, Chardonnay","item_vivlia_chora":"Κτήμα Βιβλία Χώρα","item_vivlia_chora_sub":"ΠΓΕ Παγγαίου · Ασύρτικο, Sauvignon Blanc","item_malagouzia_gerovassiliou":"Μαλαγουζιά Γεροβασιλείου","item_malagouzia_gerovassiliou_sub":"ΠΓΕ Επανομή · Μαλαγουζιά","item_theodorakakos_ka":"ΚΑ Θεοδωρακάκου","item_theodorakakos_ka_sub":"ΠΓΕ Λακωνία · Κυδωνίτσα, Αγιωργίτικο (BIO)","item_idylle_achinos":"Idylle d'Achinos La Tour Melas","item_idylle_achinos_sub":"ΠΓΕ Φθιώτιδα · Syrah, Grenache, Αγιωργίτικο","item_theodorakakos_estate":"Κτήμα Θεοδωρακάκου","item_theodorakakos_estate_sub":"ΠΓΕ Λακωνία · Μαυρούδι (BIO)","cat_desserts":"Επιδόρπια","item_yogurt_honey":"Γιαούρτι με μέλι ή κυδώνι","item_ice_cream":"Παγωτό (μπάλα)","item_orange_pie":"Πορτοκαλόπιτα","item_walnut_pie":"Καρυδόπιτα","item_baklava":"Μπακλαβάς","cat_coffee":"Καφέδες","item_espresso":"Εσπρέσσο","item_freddo":"Φρέντο εσπρέσσο","item_cappuccino":"Cappuccino"},"de":{"meta_title":"Taverna 90 Moires — Fisch & Traditionelles · Gythio, Mani · seit 1959","meta_desc":"Eine Familien-Fischtaverne an der lakonischen Küste. Drei Generationen Fischer, Köche und Gastgeber an der Prothypourgou Tzanni Tzannetaki in Gythio — seit 1959.","nav_story":"Unsere Geschichte","nav_signature":"Der Oktopus","nav_menu":"Speisekarte","nav_visit":"Besuchen","nav_cta":"Finde uns","hero_eyebrow":"90 Μοίρες · Gythio · Mani · seit 1959","hero_title_html":"Eine Familien-Fischtaverne<br/><span class=\"accent\">an der Ecke</span> der<br/>lakonischen Küste, <span class=\"swash\">&amp;</span><br/><span class=\"accent\">die Boote, die sie nähren.</span>","hero_lede":"Drei Generationen Fischer, Köche und Gastgeber. Der Fang kommt aus dem Golf; das Öl wird in den Hügeln gepresst; die Holzkohle geht nie ganz aus. Keine Abkürzungen — nur das Meer, der Grill, die Familie.","hero_btn_menu":"Speisekarte ansehen","hero_btn_story":"Was sind 90 Moires?","strip_1":"Täglicher Fang","strip_2":"Lakonisches Olivenöl","strip_3":"Hauswein vom Fass","strip_4":"Familienrezepte seit 1959","story_eyebrow":"Unsere Geschichte","story_title_html":"Eine Ecke am <em>Lakonischen Golf.</em>","story_p1":"Neunzig Grad. Die Ecke, an der unsere Tür auf die Hafenstraße trifft — und der Kompasskurs, den unsere Boote jeden Morgen aus Gythio nehmen. Drei Generationen, derselbe Winkel, dieselbe Familie, seit 1959.","story_p2":"Der Großvater fischte. Der Sohn kochte. Die Enkel tun beides. Was um sechs Uhr morgens aus dem Wasser kommt, ist um zwölf auf dem Teller. Was an diesem Tag nicht gefangen wird, wird nicht serviert. Das ist die ganze Logik dieses Ortes.","story_p3":"Unser Öl wird in den Mani-Hügeln über uns gepresst. Unser Wein wird vom Fass gezogen. Unser Fisch wird nach Kilo berechnet, weil der Fisch entscheidet, wie viel er wiegt, nicht wir. Setzen Sie sich an einen Tisch in der Tzanni Tzannetaki, bestellen Sie, was der Tag gebracht hat, schauen Sie auf den Hafen. Das ist das Abendessen.","fact_1_num":"65+","fact_1_lbl":"Jahre an derselben Ecke","fact_2_num":"3","fact_2_lbl":"Generationen von Köchen","fact_3_num":"12+","fact_3_lbl":"Arten frischer Fisch nach Kilo","fact_4_num":"90°","fact_4_lbl":"Ost bei Morgengrauen, jeden Tag","sig_eyebrow":"Σήμα Κατατεθέν · Unser Markenzeichen","sig_title_html":"Gegrillter <em>Oktopus.</em>","sig_sub":"wie man es an der Mani-Küste macht","sig_intro":"Im Golf gefangen, zum Lüften an die Leine gehängt, dann auf die Holzkohle gelegt. Keine Marinade — nur Salz, Olivenöl, Oregano, ein Spritzer Zitrone. Innen zart, außen knusprig. Wenn Sie nur eine Sache bei 90 Moires essen, essen Sie das.","trio_1_title":"Der Fang","trio_1_gr":"Από τη θάλασσα","trio_1_desc":"Frisch bezogen von den kleinen Booten aus Gythio und dem lakonischen Golf. Was morgens in der Küche ankommt, steht abends auf der Karte — nicht einen Tag später.","trio_2_title":"Das Feuer","trio_2_gr":"Στα κάρβουνα","trio_2_desc":"Echte Holzkohle, niemals Gas. Der Oktopus bleibt gerade lange genug auf dem Rost, damit die Ränder knusprig werden, das Innere weich bleibt, der Rauch jeden Tentakel erreicht.","trio_3_title":"Der Tisch","trio_3_gr":"Στο τραπέζι","trio_3_desc":"Serviert auf einem einfachen Teller mit Olivenöl, Oregano, einer Zitronenscheibe und einem halben Kilo Hauswein — denn Wein und Oktopus gehören zusammen, und in der Mani weiß das jeder.","menu_eyebrow":"Κατάλογος · Speisekarte","menu_title_html":"Die <em>Speisekarte.</em>","menu_intro":"Preise in Euro. Der Fischstand ändert sich täglich — fragen Sie Ihren Kellner, was heute Morgen reinkam. Fisch nach Kilo ist genau das: Der Fisch wird vor Ihnen gewogen, pro Kilo berechnet, zubereitet wie Sie wünschen.","feat_title_html":"Gegrillter <em>Oktopus</em>","feat_sub":"Χταπόδι ψητό · das Markenzeichen","feat_desc":"Unser einziger Grund, herzukommen. Auf Holzkohle gegrillt wie damals, mit nichts als Olivenöl, Oregano und Zitrone. Wenn es Ihr erstes Mal bei 90 Moires ist, fangen Sie hier an.","feat_label":"der eigentliche Grund","kilo_banner":"Preis pro Kilo · der Fang wird vor Ihnen gewogen","visit_eyebrow":"Besuchen Sie uns","visit_title_html":"Kommen Sie für den <em>Oktopus.</em>","visit_intro":"Wir sind an der Ecke der Prothypourgou Tzanni Tzannetaki, direkt am Hafen von Gythio. Achten Sie auf die blauen Stühle, den Zitronenbaum und den Rauch vom Holzkohlegrill. Wenn es nach Oregano und Meersalz riecht, sind Sie nah dran.","visit_btn":"In Google Maps öffnen","visit_where_lbl":"Adresse","visit_where_sub":"Lakonien · Mani · Peloponnes","visit_phone_lbl":"Telefon","visit_phone_sub":"für größere Gruppen oder ganze Fische bitte vorher anrufen","visit_hours_lbl":"Öffnungszeiten","visit_hours_note":"täglich, Mittag und Abend","day_every":"Täglich","visit_find_lbl":"Finden Sie uns","foot_tagline":"„Καλή όρεξη — und keine Handys am Tisch.\"","foot_menu":"Speisekarte","foot_visit":"Besuchen","foot_privacy":"Datenschutz","foot_copyright":"Seit 1959 · Mit Holzkohle, Salzwasser und Geduld gemacht","cat_salads":"Salate","item_hortarakia":"Wildkräuter vom Berg","item_salad_90":"90-Moires-Salat","item_salad_90_sub":"Salat, Lola, Rosinen, Cherrytomaten, Goji-Beeren, Pflaume, Cranberry, Eisbergsalat, Katiki-Käse aus Domokos","item_salad_sea":"Meeressalat","item_salad_sea_sub":"Tomate, Gurke, Frühlingszwiebel, marinierte Sardellen, Basilikumöl, Petersilie","item_zucchini":"Gekochte Zucchini","item_beetroot":"Frische Rote Bete mit Knoblauch","item_cucumber_tomato":"Gurke & Tomate","item_greek_salad":"Griechischer Salat","item_boiled_vegetables":"Gekochtes Saisongemüse","item_mixed_salad":"Gemischter Salat","item_cabbage_carrot":"Weißkohl & Karotte","item_lettuce_dill":"Salat mit Dill & Frühlingszwiebel","cat_appetizers":"Vorspeisen","item_tzatziki":"Tzatziki","item_tirokafteri":"Tirokafteri '90 Moires'","item_taramosalata":"Weiße Taramosalata","item_skordalia":"Skordalia (Knoblauchpaste)","item_fries":"Handgeschnittene Pommes","item_feta_barrel":"Fassgereifter Feta","item_crab_salad":"Krabbensalat","item_octopus_oil":"Krake in Essig & Öl","item_octopus_grilled":"Gegrillte Krake","item_anchovy_marinated":"Marinierte Sardellen","item_dakos":"Dakos (kretischer Zwieback)","item_giants":"Riesenbohnen","item_fava":"Fava (gelbe Erbsenpüree)","item_potato_salad":"Kartoffelsalat","item_olives":"Oliven","cat_grilled_meats":"Grillfleisch","item_veal_chop":"Milchkalbs-Kotelett","item_pork_chop":"Schweinekotelett","item_pork_tenderloin":"Schweinefilet","item_chicken_fillet":"Hähnchenfilet","item_bifteki":"Bifteki (Hackfleisch-Patty)","item_mani_sausage":"Mani-Wurst","item_chicken_souvlaki":"Hähnchen-Souvlaki","cat_traditional":"Traditionelle Gerichte","item_lahanodolmades":"Kohlrouladen (Lahanodolmades)","item_soutzoukakia":"Soutzoukakia (Smyrna-Fleischbällchen)","item_veal_red":"Kalb in Tomatensauce","item_veal_lemon":"Kalb in Zitronensauce","item_rooster_wine":"Hahn in Weinsauce","item_ladera":"Tagesgemüseeintopf","item_moussaka":"Moussaka","item_lamb_oven":"Lamm aus dem Ofen","item_pasta_sauce":"Pasta mit Tomatensauce","item_meatballs":"Keftedakia (Fleischbällchen)","item_cuttlefish_stifado":"Tintenfisch-Stifado","cat_seafood_plates":"Meeresfrüchte-Spezialitäten","item_fish_soup":"Fischsuppe","item_whitebait":"Kleine Sprotten (Maridaki)","item_sardines":"Sardinen","item_anchovies_fresh":"Frische Sardellen","item_calamari_fresh":"Frische Calamari","item_shrimp_fried":"Gebratene Garnelen","item_shrimp_grilled":"Gegrillte Garnelen","item_shrimp_small":"Frische kleine Garnelen","item_red_mullet_portion":"Rote Meerbarbe Portion (350g)","item_shrimp_pasta":"Garnelen-Pasta","item_shrimp_saganaki":"Garnelen Saganaki","item_sea_bream_menu":"Dorade Menü","cat_seafood_kilo":"Meeresfrüchte nach Kilo","item_fagri":"Sackbrasse (Fagri)","item_sargos":"Geißbrasse (Sargos)","item_sfyrida":"Weißer Zackenbarsch (Sfyrida)","item_synagrida":"Zahnbrasse (Synagrida)","item_rofos":"Dunkler Zackenbarsch (Rofos)","item_steira":"Adlerfisch (Steira)","item_lithrinia":"Rotbrasse (Lithrinia)","item_barbouni":"Rote Meerbarbe (Barbouni)","item_bakalaos":"Kabeljau (Bakaliaros)","item_calamari_kilo":"Frischer Tintenfisch","item_kotsomoura":"Streifenbarbe (Kotsomoura)","item_shrimp_laconia":"Frische lakonische Garnelen","cat_extras":"Aus der Küche","item_olive_oil":"Olivenöl 50ml","item_mani_bread":"Gegrilltes Brot mit Mani-Olivenöl","cat_drinks":"Getränke","item_beer":"Bier","item_ouzo":"Ouzo (Karaffe)","item_ouzo_pitsiladi":"Ouzo Pitsiladi","item_ouzo_mini":"Ouzo Miniatur","item_tsipouro":"Tsipouro (Karaffe)","item_tsipouro_mini":"Tsipouro Miniatur","item_spirits":"Whisky, Wodka, Campari","item_metaxa":"Metaxa Weinbrand","item_soft_drinks":"Erfrischungsgetränke","item_water_small":"Mineralwasser 0.5L","item_water_large":"Mineralwasser 1L","item_sparkling_small":"Sprudelwasser 330ml","item_sparkling_large":"Sprudelwasser 1L","item_fresh_juice":"Frischer Saft","cat_wines":"Weine","item_house_wine_half":"Hauswein (½ kg)","item_wine_glass":"Glas Wein","item_retsina":"Retsina Malamatina (½ kg)","item_oinos_laikos":"Oinos Laikos, Tsimpidi (weiß / rosé)","item_kydonitsa_lacovino":"Kydonitsa Lacovino","item_kydonitsa_lacovino_sub":"Lakonien · Rebsorte Kydonitsa","item_mantinia_tselepos":"Mantinia Tselepos","item_mantinia_tselepos_sub":"PDO Mantinia · Moschofilero","item_stone_hills_palivou":"Stone Hills Palivou","item_stone_hills_palivou_sub":"Peloponnes · Malagouzia, Chardonnay","item_vivlia_chora":"Vivlia Chora Estate","item_vivlia_chora_sub":"Pangeo · Assyrtiko, Sauvignon Blanc","item_malagouzia_gerovassiliou":"Malagouzia Gerovassiliou","item_malagouzia_gerovassiliou_sub":"Epanomi · Malagouzia","item_theodorakakos_ka":"Theodorakakos KA","item_theodorakakos_ka_sub":"Lakonien · Kydonitsa, Agiorgitiko (bio)","item_idylle_achinos":"Idylle d'Achinos La Tour Melas","item_idylle_achinos_sub":"Phthiotis · Syrah, Grenache, Agiorgitiko","item_theodorakakos_estate":"Weingut Theodorakakos","item_theodorakakos_estate_sub":"Lakonien · Mavroudi (bio)","cat_desserts":"Desserts","item_yogurt_honey":"Joghurt mit Honig oder Quittenlöffel-Süß","item_ice_cream":"Eis (Kugel)","item_orange_pie":"Orangenkuchen","item_walnut_pie":"Walnusskuchen","item_baklava":"Baklava","cat_coffee":"Kaffee","item_espresso":"Espresso","item_freddo":"Freddo Espresso","item_cappuccino":"Cappuccino"},"fr":{"meta_title":"Taverne 90 Moires — Poisson & Traditionnel · Gythio, Magne · depuis 1959","meta_desc":"Une taverne de poissons familiale sur la côte laconienne. Trois générations de pêcheurs, de cuisiniers et d'hôtes rue Prothypourgou Tzanni Tzannetaki, Gythio — depuis 1959.","nav_story":"Notre Histoire","nav_signature":"Le Poulpe","nav_menu":"Carte","nav_visit":"Nous Trouver","nav_cta":"Nous Trouver","hero_eyebrow":"90 Μοίρες · Gythio · Magne · depuis 1959","hero_title_html":"Une taverne de poissons<br/>familiale <span class=\"accent\">au coin</span> de<br/>la côte laconienne, <span class=\"swash\">&amp;</span><br/><span class=\"accent\">les barques qui la nourrissent.</span>","hero_lede":"Trois générations de pêcheurs, de cuisiniers et d'hôtes. La prise vient du golfe ; l'huile est pressée dans les collines ; le charbon ne s'éteint jamais vraiment. Sans raccourcis — juste la mer, le grill, la famille.","hero_btn_menu":"Voir la Carte","hero_btn_story":"Qu'est-ce que 90 Moires ?","strip_1":"Prise du jour","strip_2":"Huile d'olive laconienne","strip_3":"Vin de la maison au tonneau","strip_4":"Recettes de famille depuis 1959","story_eyebrow":"Notre Histoire","story_title_html":"Un coin sur le <em>golfe Laconique.</em>","story_p1":"Quatre-vingt-dix degrés. Le coin où notre porte rencontre la rue du port — et le cap que nos barques prennent à la sortie de Gythio chaque aube. Trois générations, même angle, même famille, depuis 1959.","story_p2":"Le grand-père pêchait. Le fils cuisinait. Les petits-enfants font les deux. Ce qui sort de l'eau à six heures du matin est dans l'assiette à midi. Ce qui n'est pas pris ce jour-là n'est pas servi. C'est toute la logique de cet endroit.","story_p3":"Notre huile est pressée dans les collines du Magne au-dessus de nous. Notre vin est tiré du tonneau. Notre poisson est vendu au kilo parce que c'est le poisson qui décide de son poids, pas nous. Installez-vous à une table rue Tzanni Tzannetaki, commandez ce que le jour a apporté, regardez le port. C'est le dîner.","fact_1_num":"65+","fact_1_lbl":"années au même coin","fact_2_num":"3","fact_2_lbl":"générations de cuisiniers","fact_3_num":"12+","fact_3_lbl":"poissons frais au kilo","fact_4_num":"90°","fact_4_lbl":"cap à l'est, chaque matin","sig_eyebrow":"Σήμα Κατατεθέν · La Signature","sig_title_html":"Poulpe <em>grillé.</em>","sig_sub":"comme on le fait sur la côte du Magne","sig_intro":"Pêché dans le golfe, pendu à la corde pour sécher à l'air, puis posé sur la braise. Pas de marinade — juste du sel, de l'huile d'olive, de l'origan, un trait de citron. Tendre à l'intérieur, grillé à l'extérieur, inoubliable. Si vous ne mangez qu'une chose chez 90 Moires, mangez ça.","trio_1_title":"La Prise","trio_1_gr":"Από τη θάλασσα","trio_1_desc":"Frais, pris sur les petites barques de Gythio et du golfe Laconique au sens large. Ce qui arrive en cuisine le matin est à la carte le soir — pas un jour plus tard.","trio_2_title":"Le Feu","trio_2_gr":"Στα κάρβουνα","trio_2_desc":"Du vrai charbon, jamais du gaz. Le poulpe reste sur le grill juste assez longtemps pour que les bords grésillent, que l'intérieur reste moelleux, que la fumée atteigne chaque tentacule.","trio_3_title":"La Table","trio_3_gr":"Στο τραπέζι","trio_3_desc":"Servi simplement, avec huile d'olive, origan, un quartier de citron et un demi-kilo de vin de la maison — parce que le vin et le poulpe sont faits l'un pour l'autre, et dans le Magne tout le monde le sait.","menu_eyebrow":"Κατάλογος · La Carte","menu_title_html":"La <em>Carte.</em>","menu_intro":"Prix en euros. L'étal change chaque jour — demandez à votre serveur ce qui est arrivé ce matin. Le poisson au kilo est exactement ça : pesé devant vous, facturé au kilo, cuisiné comme vous voulez.","feat_title_html":"Poulpe <em>grillé</em>","feat_sub":"Χταπόδι ψητό · la signature","feat_desc":"Notre seule et vraie raison de venir. Grillé au charbon à l'ancienne, avec rien d'autre que huile d'olive, origan, citron. Si c'est votre première fois chez 90 Moires, commencez par là.","feat_label":"la vraie raison","kilo_banner":"Au kilo · le poisson est pesé devant vous","visit_eyebrow":"Nous Rendre Visite","visit_title_html":"Venez pour le <em>poulpe.</em>","visit_intro":"Nous sommes au coin de la rue Prothypourgou Tzanni Tzannetaki, sur le port de Gythio. Cherchez les chaises bleues, le citronnier et la fumée du grill. Si ça sent l'origan et le sel marin, vous y êtes presque.","visit_btn":"Ouvrir dans Google Maps","visit_where_lbl":"Adresse","visit_where_sub":"Laconie · Magne · Péloponnèse","visit_phone_lbl":"Téléphone","visit_phone_sub":"appelez à l'avance pour les grands groupes ou le poisson entier","visit_hours_lbl":"Horaires","visit_hours_note":"tous les jours, midi et soir","day_every":"Tous les jours","visit_find_lbl":"Nous trouver","foot_tagline":"« Καλή όρεξη — et pas de téléphones à table. »","foot_menu":"Carte","foot_visit":"Visite","foot_privacy":"Confidentialité","foot_copyright":"Depuis 1959 · Fait au charbon, à l'eau de mer et avec patience","cat_salads":"Salades","item_hortarakia":"Herbes des montagnes","item_salad_90":"Salade 90 Moires","item_salad_90_sub":"Laitue, lola, raisins secs, tomates cerises, baies de goji, prune, canneberge, iceberg, fromage katiki de Domokos","item_salad_sea":"Salade de la mer","item_salad_sea_sub":"Tomate, concombre, oignon frais, anchois marinés, huile de basilic, persil","item_zucchini":"Courgettes bouillies","item_beetroot":"Betteraves fraîches à l'ail","item_cucumber_tomato":"Concombre & tomate","item_greek_salad":"Salade grecque","item_boiled_vegetables":"Légumes bouillis de saison","item_mixed_salad":"Salade composée","item_cabbage_carrot":"Chou & carotte","item_lettuce_dill":"Laitue à l'aneth & oignon nouveau","cat_appetizers":"Pour commencer","item_tzatziki":"Tzatziki","item_tirokafteri":"Tirokafteri '90 Moires'","item_taramosalata":"Taramasalata blanche","item_skordalia":"Skordalia (purée à l'ail)","item_fries":"Frites coupées à la main","item_feta_barrel":"Feta affiné en fût","item_crab_salad":"Salade de crabe","item_octopus_oil":"Poulpe au vinaigre & huile","item_octopus_grilled":"Poulpe grillé","item_anchovy_marinated":"Anchois marinés","item_dakos":"Dakos (rusk crétois)","item_giants":"Haricots géants","item_fava":"Fava (purée de pois cassés)","item_potato_salad":"Salade de pommes de terre","item_olives":"Olives","cat_grilled_meats":"Viandes grillées","item_veal_chop":"Côte de veau de lait","item_pork_chop":"Côte de porc","item_pork_tenderloin":"Filet de porc","item_chicken_fillet":"Filet de poulet","item_bifteki":"Bifteki (steak haché)","item_mani_sausage":"Saucisse de Magne","item_chicken_souvlaki":"Souvlaki de poulet","cat_traditional":"Plats traditionnels","item_lahanodolmades":"Feuilles de chou farcies","item_soutzoukakia":"Soutzoukakia (boulettes de Smyrne)","item_veal_red":"Veau sauce tomate","item_veal_lemon":"Veau sauce citron","item_rooster_wine":"Coq au vin","item_ladera":"Plat de légumes du jour","item_moussaka":"Moussaka","item_lamb_oven":"Agneau au four","item_pasta_sauce":"Pâtes sauce tomate","item_meatballs":"Keftedakia (boulettes)","item_cuttlefish_stifado":"Seiche stifado","cat_seafood_plates":"Délices de la mer","item_fish_soup":"Soupe de poisson","item_whitebait":"Petites friture (maridaki)","item_sardines":"Sardines","item_anchovies_fresh":"Anchois frais","item_calamari_fresh":"Calamars frais","item_shrimp_fried":"Crevettes frites","item_shrimp_grilled":"Crevettes grillées","item_shrimp_small":"Petites crevettes fraîches","item_red_mullet_portion":"Rouget portion (350g)","item_shrimp_pasta":"Pâtes aux crevettes","item_shrimp_saganaki":"Crevettes saganaki","item_sea_bream_menu":"Daurade menu","cat_seafood_kilo":"Fruits de mer au kilo","item_fagri":"Pagre (fagri)","item_sargos":"Sar (sargos)","item_sfyrida":"Mérou blanc (sfyrida)","item_synagrida":"Denté (synagrida)","item_rofos":"Mérou brun (rofos)","item_steira":"Maigre (steira)","item_lithrinia":"Pageot (lithrinia)","item_barbouni":"Rouget (barbouni)","item_bakalaos":"Cabillaud (bakaliaros)","item_calamari_kilo":"Calmars frais","item_kotsomoura":"Rouget de roche (kotsomoura)","item_shrimp_laconia":"Crevettes fraîches laconiennes","cat_extras":"De la cuisine","item_olive_oil":"Huile d'olive 50ml","item_mani_bread":"Pain grillé à l'huile d'olive de Magne","cat_drinks":"Boissons","item_beer":"Bière","item_ouzo":"Ouzo (carafe)","item_ouzo_pitsiladi":"Ouzo Pitsiladi","item_ouzo_mini":"Ouzo miniature","item_tsipouro":"Tsipouro (carafe)","item_tsipouro_mini":"Tsipouro miniature","item_spirits":"Whisky, Vodka, Campari","item_metaxa":"Brandy Metaxa","item_soft_drinks":"Boissons gazeuses","item_water_small":"Eau minérale 0.5L","item_water_large":"Eau minérale 1L","item_sparkling_small":"Eau gazeuse 330ml","item_sparkling_large":"Eau gazeuse 1L","item_fresh_juice":"Jus frais","cat_wines":"Vins","item_house_wine_half":"Vin maison (½ kilo)","item_wine_glass":"Verre de vin","item_retsina":"Retsina Malamatina (½ kilo)","item_oinos_laikos":"Oinos Laikos, Tsimpidi (blanc / rosé)","item_kydonitsa_lacovino":"Kydonitsa Lacovino","item_kydonitsa_lacovino_sub":"Laconie · cépage Kydonitsa","item_mantinia_tselepos":"Mantinia Tselepos","item_mantinia_tselepos_sub":"AOP Mantinia · Moschofilero","item_stone_hills_palivou":"Stone Hills Palivou","item_stone_hills_palivou_sub":"Péloponnèse · Malagouzia, Chardonnay","item_vivlia_chora":"Domaine Vivlia Chora","item_vivlia_chora_sub":"Pangée · Assyrtiko, Sauvignon Blanc","item_malagouzia_gerovassiliou":"Malagouzia Gerovassiliou","item_malagouzia_gerovassiliou_sub":"Epanomi · Malagouzia","item_theodorakakos_ka":"Theodorakakos KA","item_theodorakakos_ka_sub":"Laconie · Kydonitsa, Agiorgitiko (bio)","item_idylle_achinos":"Idylle d'Achinos La Tour Melas","item_idylle_achinos_sub":"Phthiotide · Syrah, Grenache, Agiorgitiko","item_theodorakakos_estate":"Domaine Theodorakakos","item_theodorakakos_estate_sub":"Laconie · Mavroudi (bio)","cat_desserts":"Desserts","item_yogurt_honey":"Yaourt au miel ou confit de coing","item_ice_cream":"Glace (boule)","item_orange_pie":"Tourte à l'orange","item_walnut_pie":"Gâteau aux noix","item_baklava":"Baklava","cat_coffee":"Cafés","item_espresso":"Espresso","item_freddo":"Freddo espresso","item_cappuccino":"Cappuccino"},"es":{"meta_title":"Taberna 90 Moires — Pescado & Tradicional · Gythio, Mani · desde 1959","meta_desc":"Una taberna familiar de pescado en la costa lacónica. Tres generaciones de pescadores, cocineros y anfitriones en la calle Prothypourgou Tzanni Tzannetaki, Gythio — desde 1959.","nav_story":"Nuestra Historia","nav_signature":"El Pulpo","nav_menu":"Carta","nav_visit":"Visítanos","nav_cta":"Encuéntranos","hero_eyebrow":"90 Μοίρες · Gythio · Mani · desde 1959","hero_title_html":"Una taberna familiar<br/>de pescado <span class=\"accent\">en la esquina</span><br/>de la costa lacónica, <span class=\"swash\">&amp;</span><br/><span class=\"accent\">las barcas que la alimentan.</span>","hero_lede":"Tres generaciones de pescadores, cocineros y anfitriones. La captura viene del golfo; el aceite se prensa en las colinas; el carbón nunca se apaga del todo. Sin atajos — solo el mar, la parrilla, la familia.","hero_btn_menu":"Ver la Carta","hero_btn_story":"¿Qué son 90 Moires?","strip_1":"Captura del día","strip_2":"Aceite de oliva lacónico","strip_3":"Vino de la casa de barrica","strip_4":"Recetas de familia desde 1959","story_eyebrow":"Nuestra Historia","story_title_html":"Una esquina en el <em>golfo Lacónico.</em>","story_p1":"Noventa grados. La esquina donde nuestra puerta se encuentra con la calle del puerto — y el rumbo que nuestras barcas toman al salir de Gythio cada amanecer. Tres generaciones, el mismo ángulo, la misma familia, desde 1959.","story_p2":"El abuelo pescaba. El hijo cocinaba. Los nietos hacen ambas cosas. Lo que sale del agua a las seis de la mañana está en el plato a las doce. Lo que no se pesca ese día, no se sirve. Esa es toda la lógica de este lugar.","story_p3":"Nuestro aceite se prensa en las colinas del Mani, encima de nosotros. Nuestro vino se tira de la barrica. Nuestro pescado se paga al kilo porque es el pez quien decide cuánto pesa, no nosotros. Siéntese en una mesa en Tzanni Tzannetaki, pida lo que trajo el día, mire el puerto. Esa es la cena.","fact_1_num":"65+","fact_1_lbl":"años en la misma esquina","fact_2_num":"3","fact_2_lbl":"generaciones de cocineros","fact_3_num":"12+","fact_3_lbl":"pescados frescos al kilo","fact_4_num":"90°","fact_4_lbl":"rumbo este, cada amanecer","sig_eyebrow":"Σήμα Κατατεθέν · La Firma","sig_title_html":"Pulpo a la <em>parrilla.</em>","sig_sub":"como se hace en la costa de Mani","sig_intro":"Pescado en el golfo, colgado de la cuerda para que se oree, y luego sobre las brasas. Sin marinada — sal, aceite de oliva, orégano, un chorrito de limón. Tierno por dentro, tostado por fuera, inolvidable. Si solo come una cosa en 90 Moires, coma esto.","trio_1_title":"La Captura","trio_1_gr":"Από τη θάλασσα","trio_1_desc":"Fresco, de las pequeñas barcas de Gythio y del golfo Lacónico. Lo que llega a la cocina por la mañana está en la carta esa misma noche — no al día siguiente.","trio_2_title":"El Fuego","trio_2_gr":"Στα κάρβουνα","trio_2_desc":"Carbón de verdad, nunca gas. El pulpo pasa justo el tiempo necesario en la parrilla para que los bordes se tuesten, el interior siga tierno, el humo alcance cada tentáculo.","trio_3_title":"La Mesa","trio_3_gr":"Στο τραπέζι","trio_3_desc":"Servido sencillo, con aceite de oliva, orégano, un gajo de limón y medio kilo de vino de la casa — porque el vino y el pulpo están hechos el uno para el otro, y en el Mani todos lo saben.","menu_eyebrow":"Κατάλογος · La Carta","menu_title_html":"La <em>Carta.</em>","menu_intro":"Precios en euros. El mostrador de pescado cambia cada día — pregunte a su camarero qué llegó esta mañana. El pescado al kilo es justo eso: se pesa delante de usted, se factura por kilo, se cocina como quiera.","feat_title_html":"Pulpo <em>a la parrilla</em>","feat_sub":"Χταπόδι ψητό · la firma","feat_desc":"Nuestra razón de existir. A la brasa a la vieja usanza, con nada más que aceite, orégano y limón. Si es su primera vez en 90 Moires, empiece aquí.","feat_label":"la verdadera razón","kilo_banner":"Al kilo · el pescado se pesa delante de usted","visit_eyebrow":"Visítanos","visit_title_html":"Venga por el <em>pulpo.</em>","visit_intro":"Estamos en la esquina de la calle Prothypourgou Tzanni Tzannetaki, justo en el puerto de Gythio. Busque las sillas azules, el limonero y el humo de la parrilla. Si huele a orégano y sal marina, ya casi está.","visit_btn":"Abrir en Google Maps","visit_where_lbl":"Dirección","visit_where_sub":"Laconia · Mani · Peloponeso","visit_phone_lbl":"Teléfono","visit_phone_sub":"llame antes para grupos grandes o pescado entero","visit_hours_lbl":"Horario","visit_hours_note":"todos los días, comida y cena","day_every":"Todos los días","visit_find_lbl":"Encuéntranos","foot_tagline":"«Καλή όρεξη — y sin móviles en la mesa.»","foot_menu":"Carta","foot_visit":"Visita","foot_privacy":"Privacidad","foot_copyright":"Desde 1959 · Hecho con carbón, agua salada y paciencia","cat_salads":"Ensaladas","item_hortarakia":"Hierbas de montaña","item_salad_90":"Ensalada 90 Moires","item_salad_90_sub":"Lechuga, lola, pasas, tomate cherry, goji, ciruela, arándano, iceberg, queso katiki de Domokos","item_salad_sea":"Ensalada del mar","item_salad_sea_sub":"Tomate, pepino, cebolleta fresca, anchoas marinadas, aceite de albahaca, perejil","item_zucchini":"Calabacín hervido","item_beetroot":"Remolacha fresca con ajo","item_cucumber_tomato":"Pepino y tomate","item_greek_salad":"Ensalada griega","item_boiled_vegetables":"Verduras hervidas de temporada","item_mixed_salad":"Ensalada mixta","item_cabbage_carrot":"Col y zanahoria","item_lettuce_dill":"Lechuga con eneldo y cebolleta","cat_appetizers":"Para empezar","item_tzatziki":"Tzatziki","item_tirokafteri":"Tirokafteri '90 Moires'","item_taramosalata":"Taramosalata blanca","item_skordalia":"Skordalia (crema de ajo)","item_fries":"Patatas fritas caseras","item_feta_barrel":"Feta de barrica","item_crab_salad":"Ensalada de cangrejo","item_octopus_oil":"Pulpo al vinagre y aceite","item_octopus_grilled":"Pulpo a la parrilla","item_anchovy_marinated":"Anchoas marinadas","item_dakos":"Dakos (pan duro cretense)","item_giants":"Judiones","item_fava":"Fava (crema de guisantes)","item_potato_salad":"Ensalada de patata","item_olives":"Aceitunas","cat_grilled_meats":"Carnes a la parrilla","item_veal_chop":"Chuleta de ternera lechal","item_pork_chop":"Chuleta de cerdo","item_pork_tenderloin":"Solomillo de cerdo","item_chicken_fillet":"Filete de pollo","item_bifteki":"Bifteki (hamburguesa)","item_mani_sausage":"Salchicha de Mani","item_chicken_souvlaki":"Souvlaki de pollo","cat_traditional":"Platos tradicionales","item_lahanodolmades":"Rollos de col (lahanodolmades)","item_soutzoukakia":"Soutzoukakia (albóndigas de Esmirna)","item_veal_red":"Ternera en salsa de tomate","item_veal_lemon":"Ternera al limón","item_rooster_wine":"Gallo al vino","item_ladera":"Verduras guisadas del día","item_moussaka":"Musaca","item_lamb_oven":"Cordero al horno","item_pasta_sauce":"Pasta con salsa de tomate","item_meatballs":"Keftedakia (albóndigas)","item_cuttlefish_stifado":"Sepia stifado","cat_seafood_plates":"Delicias del mar","item_fish_soup":"Sopa de pescado","item_whitebait":"Chanquetes (maridaki)","item_sardines":"Sardinas","item_anchovies_fresh":"Anchoas frescas","item_calamari_fresh":"Calamares frescos","item_shrimp_fried":"Gambas fritas","item_shrimp_grilled":"Gambas a la parrilla","item_shrimp_small":"Gambas pequeñas frescas","item_red_mullet_portion":"Salmonete ración (350g)","item_shrimp_pasta":"Pasta con gambas","item_shrimp_saganaki":"Gambas saganaki","item_sea_bream_menu":"Dorada menú","cat_seafood_kilo":"Mariscos por kilo","item_fagri":"Pargo (fagri)","item_sargos":"Sargo (sargos)","item_sfyrida":"Mero blanco (sfyrida)","item_synagrida":"Dentón (synagrida)","item_rofos":"Mero oscuro (rofos)","item_steira":"Corvina (steira)","item_lithrinia":"Breca (lithrinia)","item_barbouni":"Salmonete (barbouni)","item_bakalaos":"Bacalao (bakaliaros)","item_calamari_kilo":"Calamares frescos","item_kotsomoura":"Salmonete rayado (kotsomoura)","item_shrimp_laconia":"Gambas frescas de Laconia","cat_extras":"De la cocina","item_olive_oil":"Aceite de oliva 50ml","item_mani_bread":"Pan a la parrilla con aceite de Mani","cat_drinks":"Bebidas","item_beer":"Cerveza","item_ouzo":"Ouzo (jarra)","item_ouzo_pitsiladi":"Ouzo Pitsiladi","item_ouzo_mini":"Ouzo miniatura","item_tsipouro":"Tsipouro (jarra)","item_tsipouro_mini":"Tsipouro miniatura","item_spirits":"Whisky, Vodka, Campari","item_metaxa":"Brandy Metaxa","item_soft_drinks":"Refrescos","item_water_small":"Agua mineral 0.5L","item_water_large":"Agua mineral 1L","item_sparkling_small":"Agua con gas 330ml","item_sparkling_large":"Agua con gas 1L","item_fresh_juice":"Zumo natural","cat_wines":"Vinos","item_house_wine_half":"Vino de la casa (½ kilo)","item_wine_glass":"Copa de vino","item_retsina":"Retsina Malamatina (½ kilo)","item_oinos_laikos":"Oinos Laikos, Tsimpidi (blanco / rosado)","item_kydonitsa_lacovino":"Kydonitsa Lacovino","item_kydonitsa_lacovino_sub":"Laconia · variedad Kydonitsa","item_mantinia_tselepos":"Mantinia Tselepos","item_mantinia_tselepos_sub":"DOP Mantinia · Moschofilero","item_stone_hills_palivou":"Stone Hills Palivou","item_stone_hills_palivou_sub":"Peloponeso · Malagouzia, Chardonnay","item_vivlia_chora":"Finca Vivlia Chora","item_vivlia_chora_sub":"Pangeo · Assyrtiko, Sauvignon Blanc","item_malagouzia_gerovassiliou":"Malagouzia Gerovassiliou","item_malagouzia_gerovassiliou_sub":"Epanomi · Malagouzia","item_theodorakakos_ka":"Theodorakakos KA","item_theodorakakos_ka_sub":"Laconia · Kydonitsa, Agiorgitiko (bio)","item_idylle_achinos":"Idylle d'Achinos La Tour Melas","item_idylle_achinos_sub":"Ftiótida · Syrah, Grenache, Agiorgitiko","item_theodorakakos_estate":"Finca Theodorakakos","item_theodorakakos_estate_sub":"Laconia · Mavroudi (bio)","cat_desserts":"Postres","item_yogurt_honey":"Yogur con miel o dulce de cuchara","item_ice_cream":"Helado (bola)","item_orange_pie":"Pastel de naranja","item_walnut_pie":"Pastel de nueces","item_baklava":"Baklava","cat_coffee":"Cafés","item_espresso":"Espresso","item_freddo":"Freddo espresso","item_cappuccino":"Cappuccino"},"it":{"meta_title":"Taverna 90 Moires — Pesce & Tradizione · Gythio, Mani · dal 1959","meta_desc":"Una taverna di pesce a conduzione familiare sulla costa laconica. Tre generazioni di pescatori, cuochi e ospiti in via Prothypourgou Tzanni Tzannetaki, Gythio — dal 1959.","nav_story":"La Nostra Storia","nav_signature":"Il Polpo","nav_menu":"Menù","nav_visit":"Dove Siamo","nav_cta":"Trovaci","hero_eyebrow":"90 Μοίρες · Gythio · Mani · dal 1959","hero_title_html":"Una taverna di pesce<br/>a conduzione familiare<br/><span class=\"accent\">all'angolo</span> della costa laconica, <span class=\"swash\">&amp;</span><br/><span class=\"accent\">le barche che la nutrono.</span>","hero_lede":"Tre generazioni di pescatori, cuochi e ospiti. La pesca arriva dal golfo; l'olio si spreme sulle colline; la brace non si spegne mai del tutto. Senza scorciatoie — solo il mare, la griglia, la famiglia.","hero_btn_menu":"Vedi il Menù","hero_btn_story":"Cosa sono 90 Moires?","strip_1":"Pescato del giorno","strip_2":"Olio d'oliva laconico","strip_3":"Vino della casa dalla botte","strip_4":"Ricette di famiglia dal 1959","story_eyebrow":"La Nostra Storia","story_title_html":"Un angolo sul <em>golfo Laconico.</em>","story_p1":"Novanta gradi. L'angolo dove la nostra porta incontra la strada del porto — e la rotta che le nostre barche prendono uscendo da Gythio ogni alba. Tre generazioni, stesso angolo, stessa famiglia, dal 1959.","story_p2":"Il nonno pescava. Il figlio cucinava. I nipoti fanno entrambe le cose. Quello che esce dall'acqua alle sei di mattina è nel piatto a mezzogiorno. Quello che non si prende quel giorno, non si serve. È tutta la logica di questo posto.","story_p3":"Il nostro olio si spreme sulle colline della Mani sopra di noi. Il nostro vino si spilla dalla botte. Il nostro pesce si paga al chilo perché è il pesce a decidere quanto pesa, non noi. Sedetevi a un tavolo in via Tzanni Tzannetaki, ordinate quello che ha portato la giornata, guardate il porto. Quella è la cena.","fact_1_num":"65+","fact_1_lbl":"anni sullo stesso angolo","fact_2_num":"3","fact_2_lbl":"generazioni di cuochi","fact_3_num":"12+","fact_3_lbl":"pesci freschi al chilo","fact_4_num":"90°","fact_4_lbl":"rotta est, ogni alba","sig_eyebrow":"Σήμα Κατατεθέν · La Firma","sig_title_html":"Polpo alla <em>griglia.</em>","sig_sub":"come si fa sulla costa della Mani","sig_intro":"Pescato nel golfo, appeso alla corda per asciugarsi, poi messo sulla brace. Niente marinatura — solo sale, olio d'oliva, origano, una spruzzata di limone. Tenero dentro, bruciato ai bordi, indimenticabile. Se mangiate una sola cosa da 90 Moires, mangiate questa.","trio_1_title":"Il Pescato","trio_1_gr":"Από τη θάλασσα","trio_1_desc":"Fresco, dalle piccole barche di Gythio e del golfo Laconico. Quello che arriva in cucina al mattino è in menù la sera stessa — non il giorno dopo.","trio_2_title":"Il Fuoco","trio_2_gr":"Στα κάρβουνα","trio_2_desc":"Vera brace, mai gas. Il polpo resta sulla griglia giusto il tempo perché i bordi si brucino, l'interno resti morbido, il fumo raggiunga ogni tentacolo.","trio_3_title":"La Tavola","trio_3_gr":"Στο τραπέζι","trio_3_desc":"Servito semplice, con olio d'oliva, origano, uno spicchio di limone e mezzo chilo di vino della casa — perché il vino e il polpo sono fatti uno per l'altro, e sulla Mani lo sanno tutti.","menu_eyebrow":"Κατάλογος · Il Menù","menu_title_html":"Il <em>Menù.</em>","menu_intro":"Prezzi in euro. Il banco del pesce cambia ogni giorno — chiedete al cameriere cosa è arrivato stamattina. Il pesce al chilo è proprio quello: pesato davanti a voi, prezzo al chilo, cucinato come volete.","feat_title_html":"Polpo <em>alla griglia</em>","feat_sub":"Χταπόδι ψητό · la firma","feat_desc":"La nostra unica vera ragione per venire. Alla brace come si faceva una volta, con niente oltre a olio, origano, limone. Se è la vostra prima volta da 90 Moires, partite da qui.","feat_label":"la vera ragione","kilo_banner":"Al chilo · il pesce viene pesato davanti a voi","visit_eyebrow":"Vieni a Trovarci","visit_title_html":"Venite per il <em>polpo.</em>","visit_intro":"Siamo all'angolo di via Prothypourgou Tzanni Tzannetaki, proprio sul porto di Gythio. Cercate le sedie blu, il limone e il fumo della griglia. Se sente profumo di origano e sale marino, siete vicini.","visit_btn":"Apri in Google Maps","visit_where_lbl":"Indirizzo","visit_where_sub":"Laconia · Mani · Peloponneso","visit_phone_lbl":"Telefono","visit_phone_sub":"chiamate prima per gruppi numerosi o pesce intero","visit_hours_lbl":"Orari","visit_hours_note":"tutti i giorni, pranzo e cena","day_every":"Tutti i giorni","visit_find_lbl":"Trovaci","foot_tagline":"«Καλή όρεξη — e niente telefoni a tavola.»","foot_menu":"Menù","foot_visit":"Visita","foot_privacy":"Privacy","foot_copyright":"Dal 1959 · Fatto con brace, acqua salata e pazienza","cat_salads":"Insalate","item_hortarakia":"Erbe di montagna","item_salad_90":"Insalata 90 Moires","item_salad_90_sub":"Lattuga, lola, uvetta, pomodorini, goji, prugna, mirtillo rosso, iceberg, formaggio katiki di Domokos","item_salad_sea":"Insalata di mare","item_salad_sea_sub":"Pomodoro, cetriolo, cipollotto fresco, alici marinate, olio al basilico, prezzemolo","item_zucchini":"Zucchine bollite","item_beetroot":"Barbabietola fresca con aglio","item_cucumber_tomato":"Cetriolo e pomodoro","item_greek_salad":"Insalata greca","item_boiled_vegetables":"Verdure bollite di stagione","item_mixed_salad":"Insalata mista","item_cabbage_carrot":"Cavolo e carota","item_lettuce_dill":"Lattuga con aneto e cipollotto","cat_appetizers":"Per iniziare","item_tzatziki":"Tzatziki","item_tirokafteri":"Tirokafteri '90 Moires'","item_taramosalata":"Taramosalata bianca","item_skordalia":"Skordalia (crema all'aglio)","item_fries":"Patatine tagliate a mano","item_feta_barrel":"Feta stagionata in botte","item_crab_salad":"Insalata di granchio","item_octopus_oil":"Polpo in aceto e olio","item_octopus_grilled":"Polpo alla griglia","item_anchovy_marinated":"Alici marinate","item_dakos":"Dakos (friselle cretesi)","item_giants":"Fagioli giganti","item_fava":"Fava (crema di piselli)","item_potato_salad":"Insalata di patate","item_olives":"Olive","cat_grilled_meats":"Carni alla griglia","item_veal_chop":"Costata di vitello da latte","item_pork_chop":"Costata di maiale","item_pork_tenderloin":"Filetto di maiale","item_chicken_fillet":"Filetto di pollo","item_bifteki":"Bifteki (polpetta alla griglia)","item_mani_sausage":"Salsiccia della Mani","item_chicken_souvlaki":"Souvlaki di pollo","cat_traditional":"Piatti tradizionali","item_lahanodolmades":"Involtini di cavolo","item_soutzoukakia":"Soutzoukakia (polpette di Smirne)","item_veal_red":"Vitello al pomodoro","item_veal_lemon":"Vitello al limone","item_rooster_wine":"Gallo al vino","item_ladera":"Verdure in umido del giorno","item_moussaka":"Moussaka","item_lamb_oven":"Agnello al forno","item_pasta_sauce":"Pasta al sugo","item_meatballs":"Keftedakia (polpettine)","item_cuttlefish_stifado":"Seppie stifado","cat_seafood_plates":"Delizie di mare","item_fish_soup":"Zuppa di pesce","item_whitebait":"Piccola frittura (maridaki)","item_sardines":"Sardine","item_anchovies_fresh":"Alici fresche","item_calamari_fresh":"Calamari freschi","item_shrimp_fried":"Gamberi fritti","item_shrimp_grilled":"Gamberi alla griglia","item_shrimp_small":"Gamberetti freschi","item_red_mullet_portion":"Triglia porzione (350g)","item_shrimp_pasta":"Pasta ai gamberi","item_shrimp_saganaki":"Gamberi saganaki","item_sea_bream_menu":"Orata menu","cat_seafood_kilo":"Pesce al chilo","item_fagri":"Pagro (fagri)","item_sargos":"Sarago (sargos)","item_sfyrida":"Cernia bianca (sfyrida)","item_synagrida":"Dentice (synagrida)","item_rofos":"Cernia bruna (rofos)","item_steira":"Corvina (steira)","item_lithrinia":"Pagello (lithrinia)","item_barbouni":"Triglia (barbouni)","item_bakalaos":"Merluzzo (bakaliaros)","item_calamari_kilo":"Calamari freschi","item_kotsomoura":"Triglia di scoglio (kotsomoura)","item_shrimp_laconia":"Gamberi freschi laconici","cat_extras":"Dalla cucina","item_olive_oil":"Olio d'oliva 50ml","item_mani_bread":"Pane tostato con olio della Mani","cat_drinks":"Bevande","item_beer":"Birra","item_ouzo":"Ouzo (caraffa)","item_ouzo_pitsiladi":"Ouzo Pitsiladi","item_ouzo_mini":"Ouzo miniatura","item_tsipouro":"Tsipouro (caraffa)","item_tsipouro_mini":"Tsipouro miniatura","item_spirits":"Whisky, Vodka, Campari","item_metaxa":"Brandy Metaxa","item_soft_drinks":"Bibite","item_water_small":"Acqua minerale 0.5L","item_water_large":"Acqua minerale 1L","item_sparkling_small":"Acqua frizzante 330ml","item_sparkling_large":"Acqua frizzante 1L","item_fresh_juice":"Succo fresco","cat_wines":"Vini","item_house_wine_half":"Vino della casa (½ kilo)","item_wine_glass":"Bicchiere di vino","item_retsina":"Retsina Malamatina (½ kilo)","item_oinos_laikos":"Oinos Laikos, Tsimpidi (bianco / rosé)","item_kydonitsa_lacovino":"Kydonitsa Lacovino","item_kydonitsa_lacovino_sub":"Laconia · varietà Kydonitsa","item_mantinia_tselepos":"Mantinia Tselepos","item_mantinia_tselepos_sub":"DOP Mantinia · Moschofilero","item_stone_hills_palivou":"Stone Hills Palivou","item_stone_hills_palivou_sub":"Peloponneso · Malagouzia, Chardonnay","item_vivlia_chora":"Tenuta Vivlia Chora","item_vivlia_chora_sub":"Pangeo · Assyrtiko, Sauvignon Blanc","item_malagouzia_gerovassiliou":"Malagouzia Gerovassiliou","item_malagouzia_gerovassiliou_sub":"Epanomi · Malagouzia","item_theodorakakos_ka":"Theodorakakos KA","item_theodorakakos_ka_sub":"Laconia · Kydonitsa, Agiorgitiko (bio)","item_idylle_achinos":"Idylle d'Achinos La Tour Melas","item_idylle_achinos_sub":"Ftiotide · Syrah, Grenache, Agiorgitiko","item_theodorakakos_estate":"Tenuta Theodorakakos","item_theodorakakos_estate_sub":"Laconia · Mavroudi (bio)","cat_desserts":"Dolci","item_yogurt_honey":"Yogurt con miele o dolce al cucchiaio","item_ice_cream":"Gelato (pallina)","item_orange_pie":"Torta all'arancia","item_walnut_pie":"Torta di noci","item_baklava":"Baklava","cat_coffee":"Caffè","item_espresso":"Espresso","item_freddo":"Freddo espresso","item_cappuccino":"Cappuccino"},"pt":{"meta_title":"Taverna 90 Moires — Peixe & Tradicional · Gythio, Mani · desde 1959","meta_desc":"Uma taverna familiar de peixe na costa lacónica. Três gerações de pescadores, cozinheiros e anfitriões na rua Prothypourgou Tzanni Tzannetaki, Gythio — desde 1959.","nav_story":"A Nossa História","nav_signature":"O Polvo","nav_menu":"Ementa","nav_visit":"Visite-nos","nav_cta":"Encontre-nos","hero_eyebrow":"90 Μοίρες · Gythio · Mani · desde 1959","hero_title_html":"Uma taverna familiar<br/>de peixe <span class=\"accent\">na esquina</span><br/>da costa lacónica, <span class=\"swash\">&amp;</span><br/><span class=\"accent\">os barcos que a alimentam.</span>","hero_lede":"Três gerações de pescadores, cozinheiros e anfitriões. A pescaria vem do golfo; o azeite é prensado nas colinas; as brasas nunca se apagam de todo. Sem atalhos — apenas o mar, a grelha, a família.","hero_btn_menu":"Ver a Ementa","hero_btn_story":"O que são 90 Moires?","strip_1":"Pesca do dia","strip_2":"Azeite lacónico","strip_3":"Vinho da casa da pipa","strip_4":"Receitas de família desde 1959","story_eyebrow":"A Nossa História","story_title_html":"Uma esquina no <em>Golfo Lacónico.</em>","story_p1":"Noventa graus. A esquina onde a nossa porta encontra a rua do porto — e o rumo que os nossos barcos tomam à saída de Gythio cada madrugada. Três gerações, o mesmo ângulo, a mesma família, desde 1959.","story_p2":"O avô pescava. O filho cozinhava. Os netos fazem ambas as coisas. O que sai da água às seis da manhã está no prato ao meio-dia. O que não se pesca nesse dia, não se serve. É toda a lógica deste sítio.","story_p3":"O nosso azeite é prensado nas colinas da Máni acima de nós. O nosso vinho é tirado da pipa. O nosso peixe é ao quilo porque é o peixe que decide quanto pesa, não nós. Sente-se a uma mesa na rua Tzanni Tzannetaki, peça o que o dia trouxe, olhe para o porto. É o jantar.","fact_1_num":"65+","fact_1_lbl":"anos na mesma esquina","fact_2_num":"3","fact_2_lbl":"gerações de cozinheiros","fact_3_num":"12+","fact_3_lbl":"peixes frescos ao quilo","fact_4_num":"90°","fact_4_lbl":"rumo este, cada manhã","sig_eyebrow":"Σήμα Κατατεθέν · A Assinatura","sig_title_html":"Polvo <em>grelhado.</em>","sig_sub":"à maneira da costa da Máni","sig_intro":"Apanhado no golfo, pendurado na corda a arejar, depois sobre a brasa. Sem marinada — só sal, azeite, orégãos, um pouco de limão. Tenro por dentro, tostado nas bordas, inesquecível. Se só provar uma coisa nas 90 Moires, prove isto.","trio_1_title":"A Pesca","trio_1_gr":"Από τη θάλασσα","trio_1_desc":"Fresco, dos pequenos barcos de Gythio e do golfo Lacónico. O que chega à cozinha de manhã está na ementa à noite — não no dia seguinte.","trio_2_title":"O Fogo","trio_2_gr":"Στα κάρβουνα","trio_2_desc":"Carvão a sério, nunca gás. O polvo fica na grelha o tempo necessário para as bordas crestarem, o interior ficar macio, o fumo chegar a cada tentáculo.","trio_3_title":"A Mesa","trio_3_gr":"Στο τραπέζι","trio_3_desc":"Servido simples, com azeite, orégãos, um gomo de limão e meio quilo de vinho da casa — porque o vinho e o polvo foram feitos um para o outro, e na Máni toda a gente sabe.","menu_eyebrow":"Κατάλογος · Ementa","menu_title_html":"A <em>Ementa.</em>","menu_intro":"Preços em euros. O balcão do peixe muda todos os dias — pergunte ao empregado o que chegou esta manhã. Peixe ao quilo é mesmo isso: pesa-se à sua frente, cobra-se ao quilo, cozinha-se como quiser.","feat_title_html":"Polvo <em>grelhado</em>","feat_sub":"Χταπόδι ψητό · a assinatura","feat_desc":"A nossa única e verdadeira razão para vir. Grelhado na brasa à moda antiga, com nada mais do que azeite, orégãos e limão. Se é a sua primeira vez nas 90 Moires, comece por aqui.","feat_label":"a verdadeira razão","kilo_banner":"Ao quilo · o peixe é pesado à sua frente","visit_eyebrow":"Visite-nos","visit_title_html":"Venha pelo <em>polvo.</em>","visit_intro":"Estamos na esquina da rua Prothypourgou Tzanni Tzannetaki, mesmo no porto de Gythio. Procure as cadeiras azuis, a limoeira, e o fumo da grelha. Se cheira a orégãos e sal marinho, está perto.","visit_btn":"Abrir no Google Maps","visit_where_lbl":"Morada","visit_where_sub":"Lacónia · Máni · Peloponeso","visit_phone_lbl":"Telefone","visit_phone_sub":"ligue antes para grupos grandes ou peixe inteiro","visit_hours_lbl":"Horário","visit_hours_note":"todos os dias, almoço e jantar","day_every":"Todos os dias","visit_find_lbl":"Encontre-nos","foot_tagline":"«Καλή όρεξη — e sem telemóveis à mesa.»","foot_menu":"Ementa","foot_visit":"Visita","foot_privacy":"Privacidade","foot_copyright":"Desde 1959 · Feito com carvão, água salgada e paciência","cat_salads":"Saladas","item_hortarakia":"Ervas da montanha","item_salad_90":"Salada 90 Moires","item_salad_90_sub":"Alface, lola, passas, tomate cereja, goji, ameixa, arando, iceberg, queijo katiki de Domokos","item_salad_sea":"Salada do mar","item_salad_sea_sub":"Tomate, pepino, cebolinha fresca, anchovas marinadas, óleo de manjericão, salsa","item_zucchini":"Courgette cozida","item_beetroot":"Beterraba fresca com alho","item_cucumber_tomato":"Pepino e tomate","item_greek_salad":"Salada grega","item_boiled_vegetables":"Legumes cozidos da época","item_mixed_salad":"Salada mista","item_cabbage_carrot":"Couve e cenoura","item_lettuce_dill":"Alface com endro e cebolinho","cat_appetizers":"Para começar","item_tzatziki":"Tzatziki","item_tirokafteri":"Tirokafteri '90 Moires'","item_taramosalata":"Taramosalata branca","item_skordalia":"Skordalia (pasta de alho)","item_fries":"Batatas fritas à mão","item_feta_barrel":"Feta da pipa","item_crab_salad":"Salada de caranguejo","item_octopus_oil":"Polvo em vinagre e azeite","item_octopus_grilled":"Polvo grelhado","item_anchovy_marinated":"Anchovas marinadas","item_dakos":"Dakos (rusk cretense)","item_giants":"Feijão gigante","item_fava":"Fava (creme de ervilha amarela)","item_potato_salad":"Salada de batata","item_olives":"Azeitonas","cat_grilled_meats":"Carnes grelhadas","item_veal_chop":"Costeleta de vitela","item_pork_chop":"Costeleta de porco","item_pork_tenderloin":"Lombinho de porco","item_chicken_fillet":"Filete de frango","item_bifteki":"Bifteki (hambúrguer)","item_mani_sausage":"Salsicha da Máni","item_chicken_souvlaki":"Souvlaki de frango","cat_traditional":"Pratos tradicionais","item_lahanodolmades":"Rolinhos de couve (lahanodolmades)","item_soutzoukakia":"Soutzoukakia (almôndegas de Esmirna)","item_veal_red":"Vitela em molho de tomate","item_veal_lemon":"Vitela em molho de limão","item_rooster_wine":"Galo ao vinho","item_ladera":"Legumes do dia","item_moussaka":"Moussaka","item_lamb_oven":"Borrego no forno","item_pasta_sauce":"Massa com molho de tomate","item_meatballs":"Keftedakia (almôndegas)","item_cuttlefish_stifado":"Sibas stifado","cat_seafood_plates":"Delícias do mar","item_fish_soup":"Sopa de peixe","item_whitebait":"Peixinhos (maridaki)","item_sardines":"Sardinhas","item_anchovies_fresh":"Anchovas frescas","item_calamari_fresh":"Lulas frescas","item_shrimp_fried":"Camarões fritos","item_shrimp_grilled":"Camarões grelhados","item_shrimp_small":"Camarões pequenos frescos","item_red_mullet_portion":"Salmonete porção (350g)","item_shrimp_pasta":"Massa com camarão","item_shrimp_saganaki":"Camarões saganaki","item_sea_bream_menu":"Dourada menu","cat_seafood_kilo":"Marisco ao quilo","item_fagri":"Pargo (fagri)","item_sargos":"Sargo (sargos)","item_sfyrida":"Mero branco (sfyrida)","item_synagrida":"Dentão (synagrida)","item_rofos":"Mero escuro (rofos)","item_steira":"Corvina (steira)","item_lithrinia":"Bica (lithrinia)","item_barbouni":"Salmonete (barbouni)","item_bakalaos":"Bacalhau (bakaliaros)","item_calamari_kilo":"Lulas frescas","item_kotsomoura":"Salmonete-riscado (kotsomoura)","item_shrimp_laconia":"Camarões frescos da Lacónia","cat_extras":"Da cozinha","item_olive_oil":"Azeite 50ml","item_mani_bread":"Pão grelhado com azeite da Máni","cat_drinks":"Bebidas","item_beer":"Cerveja","item_ouzo":"Ouzo (garrafa)","item_ouzo_pitsiladi":"Ouzo Pitsiladi","item_ouzo_mini":"Ouzo miniatura","item_tsipouro":"Tsipouro (garrafa)","item_tsipouro_mini":"Tsipouro miniatura","item_spirits":"Whisky, Vodka, Campari","item_metaxa":"Brandy Metaxa","item_soft_drinks":"Refrigerantes","item_water_small":"Água mineral 0.5L","item_water_large":"Água mineral 1L","item_sparkling_small":"Água com gás 330ml","item_sparkling_large":"Água com gás 1L","item_fresh_juice":"Sumo natural","cat_wines":"Vinhos","item_house_wine_half":"Vinho da casa (½ quilo)","item_wine_glass":"Copo de vinho","item_retsina":"Retsina Malamatina (½ quilo)","item_oinos_laikos":"Oinos Laikos, Tsimpidi (branco / rosé)","item_kydonitsa_lacovino":"Kydonitsa Lacovino","item_kydonitsa_lacovino_sub":"Lacónia · casta Kydonitsa","item_mantinia_tselepos":"Mantinia Tselepos","item_mantinia_tselepos_sub":"DOP Mantinia · Moschofilero","item_stone_hills_palivou":"Stone Hills Palivou","item_stone_hills_palivou_sub":"Peloponeso · Malagouzia, Chardonnay","item_vivlia_chora":"Quinta Vivlia Chora","item_vivlia_chora_sub":"Pangeo · Assyrtiko, Sauvignon Blanc","item_malagouzia_gerovassiliou":"Malagouzia Gerovassiliou","item_malagouzia_gerovassiliou_sub":"Epanomi · Malagouzia","item_theodorakakos_ka":"Theodorakakos KA","item_theodorakakos_ka_sub":"Lacónia · Kydonitsa, Agiorgitiko (bio)","item_idylle_achinos":"Idylle d'Achinos La Tour Melas","item_idylle_achinos_sub":"Ftiótida · Syrah, Grenache, Agiorgitiko","item_theodorakakos_estate":"Quinta Theodorakakos","item_theodorakakos_estate_sub":"Lacónia · Mavroudi (bio)","cat_desserts":"Sobremesas","item_yogurt_honey":"Iogurte com mel ou doce de colher","item_ice_cream":"Gelado (bola)","item_orange_pie":"Tarte de laranja","item_walnut_pie":"Tarte de nozes","item_baklava":"Baklava","cat_coffee":"Cafés","item_espresso":"Espresso","item_freddo":"Freddo espresso","item_cappuccino":"Cappuccino"}};
+  const LANG_META = {"en":{"flag":"🇬🇧","short":"EN","html_lang":"en","label":"English"},"el":{"flag":"🇬🇷","short":"EL","html_lang":"el","label":"Ελληνικά"},"de":{"flag":"🇩🇪","short":"DE","html_lang":"de","label":"Deutsch"},"fr":{"flag":"🇫🇷","short":"FR","html_lang":"fr","label":"Français"},"es":{"flag":"🇪🇸","short":"ES","html_lang":"es","label":"Español"},"it":{"flag":"🇮🇹","short":"IT","html_lang":"it","label":"Italiano"},"pt":{"flag":"🇵🇹","short":"PT","html_lang":"pt","label":"Português"}};
+  const SUPPORTED = Object.keys(TRANSLATIONS);
+
+  function detectInitialLang() {
+    const params = new URLSearchParams(window.location.search);
+    const q = params.get('lang');
+    if (q && SUPPORTED.includes(q)) return q;
+    const nav = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+    const base = nav.split('-')[0];
+    if (SUPPORTED.includes(base)) return base;
+    return 'en';
+  }
+
+  function renderI18n(lang) {
+    const dict = TRANSLATIONS[lang] || TRANSLATIONS.en;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (dict[key] !== undefined) el.textContent = dict[key];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.getAttribute('data-i18n-html');
+      if (dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+    document.querySelectorAll('[data-i18n-attr]').forEach(el => {
+      const spec = el.getAttribute('data-i18n-attr');
+      const [attr, key] = spec.split(':');
+      if (attr && key && dict[key] !== undefined) el.setAttribute(attr, dict[key]);
+    });
+
+    const meta = LANG_META[lang];
+    if (meta) {
+      document.getElementById('langCurrentFlag').textContent = meta.flag;
+      document.getElementById('langCurrentLabel').textContent = meta.short;
+      document.getElementById('htmlroot').setAttribute('lang', meta.html_lang);
+    }
+    document.querySelectorAll('.lang-menu li').forEach(li => {
+      li.classList.toggle('active', li.getAttribute('data-lang') === lang);
+    });
+
+    const url = new URL(window.location);
+    if (lang !== 'en') url.searchParams.set('lang', lang);
+    else url.searchParams.delete('lang');
+    window.history.replaceState({}, '', url);
+  }
+
+  (function setupLanguageSwitcher() {
+    const btn = document.getElementById('langButton');
+    const menu = document.getElementById('langMenu');
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const open = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(open));
+    });
+    document.addEventListener('click', e => {
+      if (!menu.contains(e.target) && e.target !== btn) {
+        menu.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+    menu.querySelectorAll('li').forEach(li => {
+      li.addEventListener('click', () => {
+        renderI18n(li.getAttribute('data-lang'));
+        menu.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  })();
+
+  renderI18n(detectInitialLang());
+
+  // reveal on scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

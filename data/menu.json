@@ -1,0 +1,270 @@
+{
+  "currency": "€",
+  "categories": [
+    {
+      "id": "salads",
+      "name": {
+        "en": "Salads", "el": "Σαλάτες", "de": "Salate", "fr": "Salades",
+        "es": "Ensaladas", "it": "Insalate", "pt": "Saladas"
+      },
+      "items": [
+        {
+          "id": "hortarakia", "price": 6.50,
+          "name": {
+            "en": "Mountain greens", "el": "Χορταράκια του βουνού",
+            "de": "Wildkräuter vom Berg", "fr": "Herbes des montagnes",
+            "es": "Hierbas de montaña", "it": "Erbe di montagna",
+            "pt": "Ervas da montanha"
+          }
+        },
+        {
+          "id": "salad_90", "price": 9.50, "featured": true,
+          "name": {
+            "en": "90 Moires salad", "el": "Σαλάτα 90 Μοίρες",
+            "de": "90-Moires-Salat", "fr": "Salade 90 Moires",
+            "es": "Ensalada 90 Moires", "it": "Insalata 90 Moires",
+            "pt": "Salada 90 Moires"
+          },
+          "sub": {
+            "en": "Lettuce, lola, raisins, cherry tomato, goji berries, plum, cranberry, iceberg, katiki cheese from Domokos",
+            "el": "Μαρούλι, λόλα, σταφίδες, ντοματίνια, goji berry, δαμάσκηνο, cranberry, iceberg, κατίκι Δομοκού",
+            "de": "Salat, Lola, Rosinen, Cherrytomaten, Goji-Beeren, Pflaume, Cranberry, Eisbergsalat, Katiki-Käse aus Domokos",
+            "fr": "Laitue, lola, raisins secs, tomates cerises, baies de goji, prune, canneberge, iceberg, fromage katiki de Domokos",
+            "es": "Lechuga, lola, pasas, tomate cherry, goji, ciruela, arándano, iceberg, queso katiki de Domokos",
+            "it": "Lattuga, lola, uvetta, pomodorini, goji, prugna, mirtillo rosso, iceberg, formaggio katiki di Domokos",
+            "pt": "Alface, lola, passas, tomate cereja, goji, ameixa, arando, iceberg, queijo katiki de Domokos"
+          }
+        },
+        {
+          "id": "salad_sea", "price": 9.50, "featured": true,
+          "name": {
+            "en": "Sea salad", "el": "Σαλάτα Θάλασσα",
+            "de": "Meeressalat", "fr": "Salade de la mer",
+            "es": "Ensalada del mar", "it": "Insalata di mare",
+            "pt": "Salada do mar"
+          },
+          "sub": {
+            "en": "Tomato, cucumber, fresh onion, marinated anchovies, basil oil, parsley",
+            "el": "Ντομάτα, αγγούρι, κρεμμυδάκι φρέσκο, γαύρος μαρινάτος, λάδι βασιλικού, μαϊντανός",
+            "de": "Tomate, Gurke, Frühlingszwiebel, marinierte Sardellen, Basilikumöl, Petersilie",
+            "fr": "Tomate, concombre, oignon frais, anchois marinés, huile de basilic, persil",
+            "es": "Tomate, pepino, cebolleta fresca, anchoas marinadas, aceite de albahaca, perejil",
+            "it": "Pomodoro, cetriolo, cipollotto fresco, alici marinate, olio al basilico, prezzemolo",
+            "pt": "Tomate, pepino, cebolinha fresca, anchovas marinadas, óleo de manjericão, salsa"
+          }
+        },
+        { "id": "zucchini", "price": 5.50, "name": { "en": "Boiled zucchini", "el": "Κολοκύθια βραστά", "de": "Gekochte Zucchini", "fr": "Courgettes bouillies", "es": "Calabacín hervido", "it": "Zucchine bollite", "pt": "Courgette cozida" } },
+        { "id": "beetroot", "price": 5.50, "name": { "en": "Fresh beetroot with garlic", "el": "Παντζάρια φρέσκα με σκόρδο", "de": "Frische Rote Bete mit Knoblauch", "fr": "Betteraves fraîches à l'ail", "es": "Remolacha fresca con ajo", "it": "Barbabietola fresca con aglio", "pt": "Beterraba fresca com alho" } },
+        { "id": "cucumber_tomato", "price": 6.00, "name": { "en": "Cucumber & tomato", "el": "Αγγουροτομάτα", "de": "Gurke & Tomate", "fr": "Concombre & tomate", "es": "Pepino y tomate", "it": "Cetriolo e pomodoro", "pt": "Pepino e tomate" } },
+        { "id": "greek_salad", "price": 9.50, "name": { "en": "Greek salad", "el": "Χωριάτικη", "de": "Griechischer Salat", "fr": "Salade grecque", "es": "Ensalada griega", "it": "Insalata greca", "pt": "Salada grega" } },
+        { "id": "boiled_vegetables", "price": 9.50, "name": { "en": "Boiled seasonal vegetables", "el": "Βραστά λαχανικά", "de": "Gekochtes Saisongemüse", "fr": "Légumes bouillis de saison", "es": "Verduras hervidas de temporada", "it": "Verdure bollite di stagione", "pt": "Legumes cozidos da época" } },
+        { "id": "mixed_salad", "price": 7.00, "name": { "en": "Mixed salad", "el": "Ανάμεικτη", "de": "Gemischter Salat", "fr": "Salade composée", "es": "Ensalada mixta", "it": "Insalata mista", "pt": "Salada mista" } },
+        { "id": "cabbage_carrot", "price": 5.00, "name": { "en": "Cabbage & carrot", "el": "Λάχανο, καρότο", "de": "Weißkohl & Karotte", "fr": "Chou & carotte", "es": "Col y zanahoria", "it": "Cavolo e carota", "pt": "Couve e cenoura" } },
+        { "id": "lettuce_dill", "price": 5.00, "name": { "en": "Lettuce with dill & spring onion", "el": "Μαρούλι με άνηθο και φρέσκο κρεμμυδάκι", "de": "Salat mit Dill & Frühlingszwiebel", "fr": "Laitue à l'aneth & oignon nouveau", "es": "Lechuga con eneldo y cebolleta", "it": "Lattuga con aneto e cipollotto", "pt": "Alface com endro e cebolinho" } }
+      ]
+    },
+    {
+      "id": "appetizers",
+      "name": {
+        "en": "Something to start", "el": "Κάτι για την όρεξη",
+        "de": "Vorspeisen", "fr": "Pour commencer",
+        "es": "Para empezar", "it": "Per iniziare",
+        "pt": "Para começar"
+      },
+      "items": [
+        { "id": "tzatziki", "price": 5.00, "name": { "en": "Tzatziki", "el": "Τζατζίκι", "de": "Tzatziki", "fr": "Tzatziki", "es": "Tzatziki", "it": "Tzatziki", "pt": "Tzatziki" } },
+        { "id": "tirokafteri", "price": 5.00, "name": { "en": "Tirokafteri '90 Moires'", "el": "Τυροκαυτερή 90 μοίρες", "de": "Tirokafteri '90 Moires'", "fr": "Tirokafteri '90 Moires'", "es": "Tirokafteri '90 Moires'", "it": "Tirokafteri '90 Moires'", "pt": "Tirokafteri '90 Moires'" } },
+        { "id": "taramosalata", "price": 5.00, "name": { "en": "White taramosalata", "el": "Ταραμοσαλάτα λευκή", "de": "Weiße Taramosalata", "fr": "Taramasalata blanche", "es": "Taramosalata blanca", "it": "Taramosalata bianca", "pt": "Taramosalata branca" } },
+        { "id": "skordalia", "price": 5.00, "name": { "en": "Skordalia (garlic dip)", "el": "Σκορδαλιά", "de": "Skordalia (Knoblauchpaste)", "fr": "Skordalia (purée à l'ail)", "es": "Skordalia (crema de ajo)", "it": "Skordalia (crema all'aglio)", "pt": "Skordalia (pasta de alho)" } },
+        { "id": "fries", "price": 5.00, "name": { "en": "Hand-cut fries", "el": "Φρεσκοκομμένες πατάτες τηγανητές", "de": "Handgeschnittene Pommes", "fr": "Frites coupées à la main", "es": "Patatas fritas caseras", "it": "Patatine tagliate a mano", "pt": "Batatas fritas à mão" } },
+        { "id": "feta_barrel", "price": 5.00, "name": { "en": "Barrel-aged feta", "el": "Φέτα βαρελίσια", "de": "Fassgereifter Feta", "fr": "Feta affiné en fût", "es": "Feta de barrica", "it": "Feta stagionata in botte", "pt": "Feta da pipa" } },
+        { "id": "crab_salad", "price": 8.00, "name": { "en": "Crab salad", "el": "Καβουροσαλάτα", "de": "Krabbensalat", "fr": "Salade de crabe", "es": "Ensalada de cangrejo", "it": "Insalata di granchio", "pt": "Salada de caranguejo" } },
+        { "id": "octopus_oil", "price": 14.00, "name": { "en": "Octopus in vinegar & oil", "el": "Χταπόδι ξιδάτο σε λάδι", "de": "Krake in Essig & Öl", "fr": "Poulpe au vinaigre & huile", "es": "Pulpo al vinagre y aceite", "it": "Polpo in aceto e olio", "pt": "Polvo em vinagre e azeite" } },
+        { "id": "octopus_grilled", "price": 17.00, "featured": true, "name": { "en": "Grilled octopus", "el": "Χταπόδι ψητό", "de": "Gegrillte Krake", "fr": "Poulpe grillé", "es": "Pulpo a la parrilla", "it": "Polpo alla griglia", "pt": "Polvo grelhado" } },
+        { "id": "anchovy_marinated", "price": 8.00, "name": { "en": "Marinated anchovies", "el": "Γαύρος μαρινάτος", "de": "Marinierte Sardellen", "fr": "Anchois marinés", "es": "Anchoas marinadas", "it": "Alici marinate", "pt": "Anchovas marinadas" } },
+        { "id": "dakos", "price": 8.00, "name": { "en": "Dakos (Cretan rusk)", "el": "Ντάκος", "de": "Dakos (kretischer Zwieback)", "fr": "Dakos (rusk crétois)", "es": "Dakos (pan duro cretense)", "it": "Dakos (friselle cretesi)", "pt": "Dakos (rusk cretense)" } },
+        { "id": "giants", "price": 9.00, "name": { "en": "Giant beans", "el": "Γίγαντες", "de": "Riesenbohnen", "fr": "Haricots géants", "es": "Judiones", "it": "Fagioli giganti", "pt": "Feijão gigante" } },
+        { "id": "fava", "price": 6.50, "name": { "en": "Fava (yellow split pea purée)", "el": "Φάβα", "de": "Fava (gelbe Erbsenpüree)", "fr": "Fava (purée de pois cassés)", "es": "Fava (crema de guisantes)", "it": "Fava (crema di piselli)", "pt": "Fava (creme de ervilha amarela)" } },
+        { "id": "potato_salad", "price": 6.00, "name": { "en": "Potato salad", "el": "Πατατοσαλάτα", "de": "Kartoffelsalat", "fr": "Salade de pommes de terre", "es": "Ensalada de patata", "it": "Insalata di patate", "pt": "Salada de batata" } },
+        { "id": "olives", "price": 4.00, "name": { "en": "Olives", "el": "Ελιές", "de": "Oliven", "fr": "Olives", "es": "Aceitunas", "it": "Olive", "pt": "Azeitonas" } }
+      ]
+    },
+    {
+      "id": "grilled_meats",
+      "name": {
+        "en": "Grilled meats", "el": "Κρεατικά σχάρας",
+        "de": "Grillfleisch", "fr": "Viandes grillées",
+        "es": "Carnes a la parrilla", "it": "Carni alla griglia",
+        "pt": "Carnes grelhadas"
+      },
+      "items": [
+        { "id": "veal_chop", "price": 17.00, "name": { "en": "Milk-fed veal chop", "el": "Μπριζόλα μοσχαρίσια γάλακτος", "de": "Milchkalbs-Kotelett", "fr": "Côte de veau de lait", "es": "Chuleta de ternera lechal", "it": "Costata di vitello da latte", "pt": "Costeleta de vitela" } },
+        { "id": "pork_chop", "price": 10.00, "name": { "en": "Pork chop", "el": "Μπριζόλα χοιρινή", "de": "Schweinekotelett", "fr": "Côte de porc", "es": "Chuleta de cerdo", "it": "Costata di maiale", "pt": "Costeleta de porco" } },
+        { "id": "pork_tenderloin", "price": 13.00, "name": { "en": "Pork tenderloin", "el": "Ψαρονέφρι", "de": "Schweinefilet", "fr": "Filet de porc", "es": "Solomillo de cerdo", "it": "Filetto di maiale", "pt": "Lombinho de porco" } },
+        { "id": "chicken_fillet", "price": 12.00, "name": { "en": "Chicken fillet", "el": "Κοτόπουλο φιλέτο", "de": "Hähnchenfilet", "fr": "Filet de poulet", "es": "Filete de pollo", "it": "Filetto di pollo", "pt": "Filete de frango" } },
+        { "id": "bifteki", "price": 12.00, "name": { "en": "Bifteki (grilled patty)", "el": "Μπιφτέκι", "de": "Bifteki (Hackfleisch-Patty)", "fr": "Bifteki (steak haché)", "es": "Bifteki (hamburguesa)", "it": "Bifteki (polpetta alla griglia)", "pt": "Bifteki (hambúrguer)" } },
+        { "id": "mani_sausage", "price": 9.00, "name": { "en": "Mani sausage", "el": "Λουκάνικο Μάνης", "de": "Mani-Wurst", "fr": "Saucisse de Magne", "es": "Salchicha de Mani", "it": "Salsiccia della Mani", "pt": "Salsicha da Máni" } },
+        { "id": "chicken_souvlaki", "price": 11.00, "name": { "en": "Chicken souvlaki", "el": "Κοτόπουλο σουβλάκι", "de": "Hähnchen-Souvlaki", "fr": "Souvlaki de poulet", "es": "Souvlaki de pollo", "it": "Souvlaki di pollo", "pt": "Souvlaki de frango" } }
+      ]
+    },
+    {
+      "id": "traditional",
+      "name": {
+        "en": "Traditional dishes", "el": "Παραδοσιακά πιάτα",
+        "de": "Traditionelle Gerichte", "fr": "Plats traditionnels",
+        "es": "Platos tradicionales", "it": "Piatti tradizionali",
+        "pt": "Pratos tradicionais"
+      },
+      "items": [
+        { "id": "lahanodolmades", "price": 10.00, "name": { "en": "Cabbage rolls (lahanodolmades)", "el": "Λαχανοντολμάδες", "de": "Kohlrouladen (Lahanodolmades)", "fr": "Feuilles de chou farcies", "es": "Rollos de col (lahanodolmades)", "it": "Involtini di cavolo", "pt": "Rolinhos de couve (lahanodolmades)" } },
+        { "id": "soutzoukakia", "price": 10.00, "name": { "en": "Soutzoukakia (Smyrna meatballs)", "el": "Σουτζουκάκια", "de": "Soutzoukakia (Smyrna-Fleischbällchen)", "fr": "Soutzoukakia (boulettes de Smyrne)", "es": "Soutzoukakia (albóndigas de Esmirna)", "it": "Soutzoukakia (polpette di Smirne)", "pt": "Soutzoukakia (almôndegas de Esmirna)" } },
+        { "id": "veal_red", "price": 14.00, "name": { "en": "Veal in red sauce", "el": "Μοσχάρι κοκκινιστό", "de": "Kalb in Tomatensauce", "fr": "Veau sauce tomate", "es": "Ternera en salsa de tomate", "it": "Vitello al pomodoro", "pt": "Vitela em molho de tomate" } },
+        { "id": "veal_lemon", "price": 14.00, "name": { "en": "Veal with lemon sauce", "el": "Μοσχάρι λεμονάτο", "de": "Kalb in Zitronensauce", "fr": "Veau sauce citron", "es": "Ternera al limón", "it": "Vitello al limone", "pt": "Vitela em molho de limão" } },
+        { "id": "rooster_wine", "price": 13.00, "name": { "en": "Rooster in wine sauce", "el": "Κόκκορας κρασάτος", "de": "Hahn in Weinsauce", "fr": "Coq au vin", "es": "Gallo al vino", "it": "Gallo al vino", "pt": "Galo ao vinho" } },
+        { "id": "ladera", "price": 9.00, "name": { "en": "Vegetable stew of the day", "el": "Λαδερά ημέρας", "de": "Tagesgemüseeintopf", "fr": "Plat de légumes du jour", "es": "Verduras guisadas del día", "it": "Verdure in umido del giorno", "pt": "Legumes do dia" } },
+        { "id": "moussaka", "price": 10.00, "name": { "en": "Moussaka", "el": "Μουσακάς", "de": "Moussaka", "fr": "Moussaka", "es": "Musaca", "it": "Moussaka", "pt": "Moussaka" } },
+        { "id": "lamb_oven", "price": 14.00, "name": { "en": "Oven-baked lamb", "el": "Αρνί στο φούρνο", "de": "Lamm aus dem Ofen", "fr": "Agneau au four", "es": "Cordero al horno", "it": "Agnello al forno", "pt": "Borrego no forno" } },
+        { "id": "pasta_sauce", "price": 8.50, "name": { "en": "Pasta with tomato sauce", "el": "Μακαρόνια με σάλτσα", "de": "Pasta mit Tomatensauce", "fr": "Pâtes sauce tomate", "es": "Pasta con salsa de tomate", "it": "Pasta al sugo", "pt": "Massa com molho de tomate" } },
+        { "id": "meatballs", "price": 9.00, "name": { "en": "Keftedakia (meatballs)", "el": "Κεφτεδάκια", "de": "Keftedakia (Fleischbällchen)", "fr": "Keftedakia (boulettes)", "es": "Keftedakia (albóndigas)", "it": "Keftedakia (polpettine)", "pt": "Keftedakia (almôndegas)" } },
+        { "id": "cuttlefish_stifado", "price": 14.00, "name": { "en": "Cuttlefish stifado", "el": "Σουπιές στιφάδο", "de": "Tintenfisch-Stifado", "fr": "Seiche stifado", "es": "Sepia stifado", "it": "Seppie stifado", "pt": "Sibas stifado" } }
+      ]
+    },
+    {
+      "id": "seafood_plates",
+      "name": {
+        "en": "Seafood delights", "el": "Θαλασσινές νοστιμιές",
+        "de": "Meeresfrüchte-Spezialitäten", "fr": "Délices de la mer",
+        "es": "Delicias del mar", "it": "Delizie di mare",
+        "pt": "Delícias do mar"
+      },
+      "items": [
+        { "id": "fish_soup", "price": 12.00, "name": { "en": "Fish soup", "el": "Ψαρόσουπα", "de": "Fischsuppe", "fr": "Soupe de poisson", "es": "Sopa de pescado", "it": "Zuppa di pesce", "pt": "Sopa de peixe" } },
+        { "id": "whitebait", "price": 9.50, "name": { "en": "Whitebait (maridaki)", "el": "Μαριδάκι", "de": "Kleine Sprotten (Maridaki)", "fr": "Petites friture (maridaki)", "es": "Chanquetes (maridaki)", "it": "Piccola frittura (maridaki)", "pt": "Peixinhos (maridaki)" } },
+        { "id": "sardines", "price": 9.50, "name": { "en": "Sardines", "el": "Σαρδέλα", "de": "Sardinen", "fr": "Sardines", "es": "Sardinas", "it": "Sardine", "pt": "Sardinhas" } },
+        { "id": "anchovies_fresh", "price": 9.50, "name": { "en": "Fresh anchovies", "el": "Γαύρος", "de": "Frische Sardellen", "fr": "Anchois frais", "es": "Anchoas frescas", "it": "Alici fresche", "pt": "Anchovas frescas" } },
+        { "id": "calamari_fresh", "price": 12.50, "name": { "en": "Fresh calamari", "el": "Καλαμαράκια φρέσκα", "de": "Frische Calamari", "fr": "Calamars frais", "es": "Calamares frescos", "it": "Calamari freschi", "pt": "Lulas frescas" } },
+        { "id": "shrimp_fried", "price": 14.00, "name": { "en": "Fried shrimp", "el": "Γαρίδες τηγανητές", "de": "Gebratene Garnelen", "fr": "Crevettes frites", "es": "Gambas fritas", "it": "Gamberi fritti", "pt": "Camarões fritos" } },
+        { "id": "shrimp_grilled", "price": 14.00, "name": { "en": "Grilled shrimp", "el": "Γαρίδες ψητές", "de": "Gegrillte Garnelen", "fr": "Crevettes grillées", "es": "Gambas a la parrilla", "it": "Gamberi alla griglia", "pt": "Camarões grelhados" } },
+        { "id": "shrimp_small", "price": 11.00, "name": { "en": "Fresh baby shrimp", "el": "Γαριδάκι φρέσκο", "de": "Frische kleine Garnelen", "fr": "Petites crevettes fraîches", "es": "Gambas pequeñas frescas", "it": "Gamberetti freschi", "pt": "Camarões pequenos frescos" } },
+        { "id": "red_mullet_portion", "price": 16.00, "name": { "en": "Red mullet portion (350g)", "el": "Κοτσομούρα μερίδα 350gr", "de": "Rote Meerbarbe Portion (350g)", "fr": "Rouget portion (350g)", "es": "Salmonete ración (350g)", "it": "Triglia porzione (350g)", "pt": "Salmonete porção (350g)" } },
+        { "id": "shrimp_pasta", "price": 18.00, "name": { "en": "Shrimp pasta", "el": "Γαριδομακαρονάδα", "de": "Garnelen-Pasta", "fr": "Pâtes aux crevettes", "es": "Pasta con gambas", "it": "Pasta ai gamberi", "pt": "Massa com camarão" } },
+        { "id": "shrimp_saganaki", "price": 18.00, "name": { "en": "Shrimp saganaki", "el": "Γαρίδες σαγανάκι", "de": "Garnelen Saganaki", "fr": "Crevettes saganaki", "es": "Gambas saganaki", "it": "Gamberi saganaki", "pt": "Camarões saganaki" } },
+        { "id": "sea_bream_menu", "price": 16.00, "name": { "en": "Sea bream menu", "el": "Τσιπούρα μενού", "de": "Dorade Menü", "fr": "Daurade menu", "es": "Dorada menú", "it": "Orata menu", "pt": "Dourada menu" } }
+      ]
+    },
+    {
+      "id": "seafood_kilo",
+      "name": {
+        "en": "Seafood by the kilo", "el": "Θαλασσινά με το κιλό",
+        "de": "Meeresfrüchte nach Kilo", "fr": "Fruits de mer au kilo",
+        "es": "Mariscos por kilo", "it": "Pesce al chilo",
+        "pt": "Marisco ao quilo"
+      },
+      "items": [
+        { "id": "fagri", "price": 60.00, "name": { "en": "Red porgy (fagri)", "el": "Φαγκρί", "de": "Sackbrasse (Fagri)", "fr": "Pagre (fagri)", "es": "Pargo (fagri)", "it": "Pagro (fagri)", "pt": "Pargo (fagri)" } },
+        { "id": "sargos", "price": 60.00, "name": { "en": "White bream (sargos)", "el": "Σαργός", "de": "Geißbrasse (Sargos)", "fr": "Sar (sargos)", "es": "Sargo (sargos)", "it": "Sarago (sargos)", "pt": "Sargo (sargos)" } },
+        { "id": "sfyrida", "price": 60.00, "name": { "en": "White grouper (sfyrida)", "el": "Σφυρίδα", "de": "Weißer Zackenbarsch (Sfyrida)", "fr": "Mérou blanc (sfyrida)", "es": "Mero blanco (sfyrida)", "it": "Cernia bianca (sfyrida)", "pt": "Mero branco (sfyrida)" } },
+        { "id": "synagrida", "price": 60.00, "name": { "en": "Dentex (synagrida)", "el": "Συναγρίδα", "de": "Zahnbrasse (Synagrida)", "fr": "Denté (synagrida)", "es": "Dentón (synagrida)", "it": "Dentice (synagrida)", "pt": "Dentão (synagrida)" } },
+        { "id": "rofos", "price": 60.00, "name": { "en": "Dusky grouper (rofos)", "el": "Ροφός", "de": "Dunkler Zackenbarsch (Rofos)", "fr": "Mérou brun (rofos)", "es": "Mero oscuro (rofos)", "it": "Cernia bruna (rofos)", "pt": "Mero escuro (rofos)" } },
+        { "id": "steira", "price": 60.00, "name": { "en": "Corb (steira)", "el": "Στείρα", "de": "Adlerfisch (Steira)", "fr": "Maigre (steira)", "es": "Corvina (steira)", "it": "Corvina (steira)", "pt": "Corvina (steira)" } },
+        { "id": "lithrinia", "price": 60.00, "name": { "en": "Pandora (lithrinia)", "el": "Λιθρίνια", "de": "Rotbrasse (Lithrinia)", "fr": "Pageot (lithrinia)", "es": "Breca (lithrinia)", "it": "Pagello (lithrinia)", "pt": "Bica (lithrinia)" } },
+        { "id": "barbouni", "price": 60.00, "name": { "en": "Red mullet (barbouni)", "el": "Μπαρμπούνια", "de": "Rote Meerbarbe (Barbouni)", "fr": "Rouget (barbouni)", "es": "Salmonete (barbouni)", "it": "Triglia (barbouni)", "pt": "Salmonete (barbouni)" } },
+        { "id": "bakalaos", "price": 50.00, "name": { "en": "Cod (bakaliaros)", "el": "Βακαλάος", "de": "Kabeljau (Bakaliaros)", "fr": "Cabillaud (bakaliaros)", "es": "Bacalao (bakaliaros)", "it": "Merluzzo (bakaliaros)", "pt": "Bacalhau (bakaliaros)" } },
+        { "id": "calamari_kilo", "price": 50.00, "name": { "en": "Fresh squid", "el": "Καλαμάρια φρέσκα", "de": "Frischer Tintenfisch", "fr": "Calmars frais", "es": "Calamares frescos", "it": "Calamari freschi", "pt": "Lulas frescas" } },
+        { "id": "kotsomoura", "price": 50.00, "name": { "en": "Striped red mullet (kotsomoura)", "el": "Κοτσομούρα", "de": "Streifenbarbe (Kotsomoura)", "fr": "Rouget de roche (kotsomoura)", "es": "Salmonete rayado (kotsomoura)", "it": "Triglia di scoglio (kotsomoura)", "pt": "Salmonete-riscado (kotsomoura)" } },
+        { "id": "shrimp_laconia", "price": 70.00, "name": { "en": "Fresh Laconian shrimp", "el": "Γαρίδες φρέσκιες Λακωνικού", "de": "Frische lakonische Garnelen", "fr": "Crevettes fraîches laconiennes", "es": "Gambas frescas de Laconia", "it": "Gamberi freschi laconici", "pt": "Camarões frescos da Lacónia" } }
+      ]
+    },
+    {
+      "id": "extras",
+      "name": {
+        "en": "From the kitchen", "el": "Από την κουζίνα",
+        "de": "Aus der Küche", "fr": "De la cuisine",
+        "es": "De la cocina", "it": "Dalla cucina",
+        "pt": "Da cozinha"
+      },
+      "items": [
+        { "id": "olive_oil", "price": 1.00, "name": { "en": "Olive oil 50ml", "el": "Ελαιόλαδο 50ml", "de": "Olivenöl 50ml", "fr": "Huile d'olive 50ml", "es": "Aceite de oliva 50ml", "it": "Olio d'oliva 50ml", "pt": "Azeite 50ml" } },
+        { "id": "mani_bread", "price": 1.00, "name": { "en": "Grilled bread with Mani olive oil", "el": "Ψητό ψωμί με ελαιόλαδο Μάνης", "de": "Gegrilltes Brot mit Mani-Olivenöl", "fr": "Pain grillé à l'huile d'olive de Magne", "es": "Pan a la parrilla con aceite de Mani", "it": "Pane tostato con olio della Mani", "pt": "Pão grelhado com azeite da Máni" } }
+      ]
+    },
+    {
+      "id": "drinks",
+      "name": {
+        "en": "Drinks", "el": "Ποτά",
+        "de": "Getränke", "fr": "Boissons",
+        "es": "Bebidas", "it": "Bevande",
+        "pt": "Bebidas"
+      },
+      "items": [
+        { "id": "beer", "price": 4.50, "name": { "en": "Beer", "el": "Μπύρα", "de": "Bier", "fr": "Bière", "es": "Cerveza", "it": "Birra", "pt": "Cerveja" } },
+        { "id": "ouzo", "price": 9.50, "name": { "en": "Ouzo (carafe)", "el": "Ούζο", "de": "Ouzo (Karaffe)", "fr": "Ouzo (carafe)", "es": "Ouzo (jarra)", "it": "Ouzo (caraffa)", "pt": "Ouzo (garrafa)" } },
+        { "id": "ouzo_pitsiladi", "price": 14.00, "name": { "en": "Ouzo Pitsiladi", "el": "Ούζο Πιτσιλαδή", "de": "Ouzo Pitsiladi", "fr": "Ouzo Pitsiladi", "es": "Ouzo Pitsiladi", "it": "Ouzo Pitsiladi", "pt": "Ouzo Pitsiladi" } },
+        { "id": "ouzo_mini", "price": 3.00, "name": { "en": "Ouzo miniature", "el": "Ούζο μινιατούρα", "de": "Ouzo Miniatur", "fr": "Ouzo miniature", "es": "Ouzo miniatura", "it": "Ouzo miniatura", "pt": "Ouzo miniatura" } },
+        { "id": "tsipouro", "price": 10.00, "name": { "en": "Tsipouro (carafe)", "el": "Τσίπουρο", "de": "Tsipouro (Karaffe)", "fr": "Tsipouro (carafe)", "es": "Tsipouro (jarra)", "it": "Tsipouro (caraffa)", "pt": "Tsipouro (garrafa)" } },
+        { "id": "tsipouro_mini", "price": 3.00, "name": { "en": "Tsipouro miniature", "el": "Τσίπουρο μινιατούρα", "de": "Tsipouro Miniatur", "fr": "Tsipouro miniature", "es": "Tsipouro miniatura", "it": "Tsipouro miniatura", "pt": "Tsipouro miniatura" } },
+        { "id": "spirits", "price": 7.00, "name": { "en": "Whiskey, Vodka, Campari", "el": "Ουίσκι, Βότκα, Καμπάρι", "de": "Whisky, Wodka, Campari", "fr": "Whisky, Vodka, Campari", "es": "Whisky, Vodka, Campari", "it": "Whisky, Vodka, Campari", "pt": "Whisky, Vodka, Campari" } },
+        { "id": "metaxa", "price": 6.00, "name": { "en": "Metaxa brandy", "el": "Μεταξά", "de": "Metaxa Weinbrand", "fr": "Brandy Metaxa", "es": "Brandy Metaxa", "it": "Brandy Metaxa", "pt": "Brandy Metaxa" } },
+        { "id": "soft_drinks", "price": 3.00, "name": { "en": "Soft drinks", "el": "Αναψυκτικά", "de": "Erfrischungsgetränke", "fr": "Boissons gazeuses", "es": "Refrescos", "it": "Bibite", "pt": "Refrigerantes" } },
+        { "id": "water_small", "price": 0.50, "name": { "en": "Mineral water 0.5L", "el": "Νερό 0.5L", "de": "Mineralwasser 0.5L", "fr": "Eau minérale 0.5L", "es": "Agua mineral 0.5L", "it": "Acqua minerale 0.5L", "pt": "Água mineral 0.5L" } },
+        { "id": "water_large", "price": 1.50, "name": { "en": "Mineral water 1L", "el": "Νερό 1L", "de": "Mineralwasser 1L", "fr": "Eau minérale 1L", "es": "Agua mineral 1L", "it": "Acqua minerale 1L", "pt": "Água mineral 1L" } },
+        { "id": "sparkling_small", "price": 3.00, "name": { "en": "Sparkling water 330ml", "el": "Ανθρακούχο 330ml", "de": "Sprudelwasser 330ml", "fr": "Eau gazeuse 330ml", "es": "Agua con gas 330ml", "it": "Acqua frizzante 330ml", "pt": "Água com gás 330ml" } },
+        { "id": "sparkling_large", "price": 5.00, "name": { "en": "Sparkling water 1L", "el": "Ανθρακούχο 1L", "de": "Sprudelwasser 1L", "fr": "Eau gazeuse 1L", "es": "Agua con gas 1L", "it": "Acqua frizzante 1L", "pt": "Água com gás 1L" } },
+        { "id": "fresh_juice", "price": 3.50, "name": { "en": "Fresh juice", "el": "Φρέσκος χυμός", "de": "Frischer Saft", "fr": "Jus frais", "es": "Zumo natural", "it": "Succo fresco", "pt": "Sumo natural" } }
+      ]
+    },
+    {
+      "id": "wines",
+      "name": {
+        "en": "Wines", "el": "Κρασιά",
+        "de": "Weine", "fr": "Vins",
+        "es": "Vinos", "it": "Vini",
+        "pt": "Vinhos"
+      },
+      "items": [
+        { "id": "house_wine_half", "price": 5.00, "name": { "en": "House wine (half-kilo)", "el": "Χύμα κρασί ½ κιλό", "de": "Hauswein (½ kg)", "fr": "Vin maison (½ kilo)", "es": "Vino de la casa (½ kilo)", "it": "Vino della casa (½ kilo)", "pt": "Vinho da casa (½ quilo)" } },
+        { "id": "wine_glass", "price": 3.00, "name": { "en": "Glass of wine", "el": "Κρασί ποτήρι", "de": "Glas Wein", "fr": "Verre de vin", "es": "Copa de vino", "it": "Bicchiere di vino", "pt": "Copo de vinho" } },
+        { "id": "retsina", "price": 7.50, "name": { "en": "Retsina Malamatina (½ kilo)", "el": "Ρετσίνα Μαλαμάτινα ½ κιλό", "de": "Retsina Malamatina (½ kg)", "fr": "Retsina Malamatina (½ kilo)", "es": "Retsina Malamatina (½ kilo)", "it": "Retsina Malamatina (½ kilo)", "pt": "Retsina Malamatina (½ quilo)" } },
+        { "id": "oinos_laikos", "price": 7.50, "name": { "en": "Oinos Laikos, Tsimpidi (white / rosé)", "el": "Οίνος Λαϊκός, Τσιμπίδι (λευκό / ροζέ)", "de": "Oinos Laikos, Tsimpidi (weiß / rosé)", "fr": "Oinos Laikos, Tsimpidi (blanc / rosé)", "es": "Oinos Laikos, Tsimpidi (blanco / rosado)", "it": "Oinos Laikos, Tsimpidi (bianco / rosé)", "pt": "Oinos Laikos, Tsimpidi (branco / rosé)" } },
+        { "id": "kydonitsa_lacovino", "price": 26.00, "name": { "en": "Kydonitsa Lacovino", "el": "Κυδωνίτσα Lacovino", "de": "Kydonitsa Lacovino", "fr": "Kydonitsa Lacovino", "es": "Kydonitsa Lacovino", "it": "Kydonitsa Lacovino", "pt": "Kydonitsa Lacovino" }, "sub": { "en": "Laconia · Kydonitsa variety", "el": "ΠΓΕ Λακωνία · ποικιλία Κυδωνίτσα", "de": "Lakonien · Rebsorte Kydonitsa", "fr": "Laconie · cépage Kydonitsa", "es": "Laconia · variedad Kydonitsa", "it": "Laconia · varietà Kydonitsa", "pt": "Lacónia · casta Kydonitsa" } },
+        { "id": "mantinia_tselepos", "price": 27.00, "name": { "en": "Mantinia Tselepos", "el": "Μαντινεία Τσελέπου", "de": "Mantinia Tselepos", "fr": "Mantinia Tselepos", "es": "Mantinia Tselepos", "it": "Mantinia Tselepos", "pt": "Mantinia Tselepos" }, "sub": { "en": "PDO Mantinia · Moschofilero", "el": "ΠΟΠ Μαντινεία · ποικιλία Μοσχοφίλερο", "de": "PDO Mantinia · Moschofilero", "fr": "AOP Mantinia · Moschofilero", "es": "DOP Mantinia · Moschofilero", "it": "DOP Mantinia · Moschofilero", "pt": "DOP Mantinia · Moschofilero" } },
+        { "id": "stone_hills_palivou", "price": 29.00, "name": { "en": "Stone Hills Palivou", "el": "Πέτρινες Πλαγιές Παλυβού", "de": "Stone Hills Palivou", "fr": "Stone Hills Palivou", "es": "Stone Hills Palivou", "it": "Stone Hills Palivou", "pt": "Stone Hills Palivou" }, "sub": { "en": "Peloponnese · Malagouzia, Chardonnay", "el": "ΠΓΕ Πελοπόννησος · Μαλαγουζιά, Chardonnay", "de": "Peloponnes · Malagouzia, Chardonnay", "fr": "Péloponnèse · Malagouzia, Chardonnay", "es": "Peloponeso · Malagouzia, Chardonnay", "it": "Peloponneso · Malagouzia, Chardonnay", "pt": "Peloponeso · Malagouzia, Chardonnay" } },
+        { "id": "vivlia_chora", "price": 35.00, "name": { "en": "Vivlia Chora Estate", "el": "Κτήμα Βιβλία Χώρα", "de": "Vivlia Chora Estate", "fr": "Domaine Vivlia Chora", "es": "Finca Vivlia Chora", "it": "Tenuta Vivlia Chora", "pt": "Quinta Vivlia Chora" }, "sub": { "en": "Pangeo · Assyrtiko, Sauvignon Blanc", "el": "ΠΓΕ Παγγαίου · Ασύρτικο, Sauvignon Blanc", "de": "Pangeo · Assyrtiko, Sauvignon Blanc", "fr": "Pangée · Assyrtiko, Sauvignon Blanc", "es": "Pangeo · Assyrtiko, Sauvignon Blanc", "it": "Pangeo · Assyrtiko, Sauvignon Blanc", "pt": "Pangeo · Assyrtiko, Sauvignon Blanc" } },
+        { "id": "malagouzia_gerovassiliou", "price": 37.00, "name": { "en": "Malagouzia Gerovassiliou", "el": "Μαλαγουζιά Γεροβασιλείου", "de": "Malagouzia Gerovassiliou", "fr": "Malagouzia Gerovassiliou", "es": "Malagouzia Gerovassiliou", "it": "Malagouzia Gerovassiliou", "pt": "Malagouzia Gerovassiliou" }, "sub": { "en": "Epanomi · Malagouzia", "el": "ΠΓΕ Επανομή · Μαλαγουζιά", "de": "Epanomi · Malagouzia", "fr": "Epanomi · Malagouzia", "es": "Epanomi · Malagouzia", "it": "Epanomi · Malagouzia", "pt": "Epanomi · Malagouzia" } },
+        { "id": "theodorakakos_ka", "price": 20.00, "name": { "en": "Theodorakakos KA", "el": "ΚΑ Θεοδωρακάκου", "de": "Theodorakakos KA", "fr": "Theodorakakos KA", "es": "Theodorakakos KA", "it": "Theodorakakos KA", "pt": "Theodorakakos KA" }, "sub": { "en": "Laconia · Kydonitsa, Agiorgitiko (organic)", "el": "ΠΓΕ Λακωνία · Κυδωνίτσα, Αγιωργίτικο (BIO)", "de": "Lakonien · Kydonitsa, Agiorgitiko (bio)", "fr": "Laconie · Kydonitsa, Agiorgitiko (bio)", "es": "Laconia · Kydonitsa, Agiorgitiko (bio)", "it": "Laconia · Kydonitsa, Agiorgitiko (bio)", "pt": "Lacónia · Kydonitsa, Agiorgitiko (bio)" } },
+        { "id": "idylle_achinos", "price": 37.00, "name": { "en": "Idylle d'Achinos La Tour Melas", "el": "Idylle d'Achinos La Tour Melas", "de": "Idylle d'Achinos La Tour Melas", "fr": "Idylle d'Achinos La Tour Melas", "es": "Idylle d'Achinos La Tour Melas", "it": "Idylle d'Achinos La Tour Melas", "pt": "Idylle d'Achinos La Tour Melas" }, "sub": { "en": "Phthiotida · Syrah, Grenache, Agiorgitiko", "el": "ΠΓΕ Φθιώτιδα · Syrah, Grenache, Αγιωργίτικο", "de": "Phthiotis · Syrah, Grenache, Agiorgitiko", "fr": "Phthiotide · Syrah, Grenache, Agiorgitiko", "es": "Ftiótida · Syrah, Grenache, Agiorgitiko", "it": "Ftiotide · Syrah, Grenache, Agiorgitiko", "pt": "Ftiótida · Syrah, Grenache, Agiorgitiko" } },
+        { "id": "theodorakakos_estate", "price": 19.00, "name": { "en": "Theodorakakos Estate", "el": "Κτήμα Θεοδωρακάκου", "de": "Weingut Theodorakakos", "fr": "Domaine Theodorakakos", "es": "Finca Theodorakakos", "it": "Tenuta Theodorakakos", "pt": "Quinta Theodorakakos" }, "sub": { "en": "Laconia · Mavroudi (organic)", "el": "ΠΓΕ Λακωνία · Μαυρούδι (BIO)", "de": "Lakonien · Mavroudi (bio)", "fr": "Laconie · Mavroudi (bio)", "es": "Laconia · Mavroudi (bio)", "it": "Laconia · Mavroudi (bio)", "pt": "Lacónia · Mavroudi (bio)" } }
+      ]
+    },
+    {
+      "id": "desserts",
+      "name": {
+        "en": "Desserts", "el": "Επιδόρπια",
+        "de": "Desserts", "fr": "Desserts",
+        "es": "Postres", "it": "Dolci",
+        "pt": "Sobremesas"
+      },
+      "items": [
+        { "id": "yogurt_honey", "price": 5.00, "name": { "en": "Yogurt with honey or spoon sweet", "el": "Γιαούρτι με μέλι ή κυδώνι", "de": "Joghurt mit Honig oder Quittenlöffel-Süß", "fr": "Yaourt au miel ou confit de coing", "es": "Yogur con miel o dulce de cuchara", "it": "Yogurt con miele o dolce al cucchiaio", "pt": "Iogurte com mel ou doce de colher" } },
+        { "id": "ice_cream", "price": 3.00, "name": { "en": "Ice cream (scoop)", "el": "Παγωτό (μπάλα)", "de": "Eis (Kugel)", "fr": "Glace (boule)", "es": "Helado (bola)", "it": "Gelato (pallina)", "pt": "Gelado (bola)" } },
+        { "id": "orange_pie", "price": 5.00, "name": { "en": "Orange pie", "el": "Πορτοκαλόπιτα", "de": "Orangenkuchen", "fr": "Tourte à l'orange", "es": "Pastel de naranja", "it": "Torta all'arancia", "pt": "Tarte de laranja" } },
+        { "id": "walnut_pie", "price": 5.00, "name": { "en": "Walnut pie", "el": "Καρυδόπιτα", "de": "Walnusskuchen", "fr": "Gâteau aux noix", "es": "Pastel de nueces", "it": "Torta di noci", "pt": "Tarte de nozes" } },
+        { "id": "baklava", "price": 5.00, "name": { "en": "Baklava", "el": "Μπακλαβάς", "de": "Baklava", "fr": "Baklava", "es": "Baklava", "it": "Baklava", "pt": "Baklava" } }
+      ]
+    },
+    {
+      "id": "coffee",
+      "name": {
+        "en": "Coffee", "el": "Καφέδες",
+        "de": "Kaffee", "fr": "Cafés",
+        "es": "Cafés", "it": "Caffè",
+        "pt": "Cafés"
+      },
+      "items": [
+        { "id": "espresso", "price": 2.50, "name": { "en": "Espresso", "el": "Εσπρέσσο", "de": "Espresso", "fr": "Espresso", "es": "Espresso", "it": "Espresso", "pt": "Espresso" } },
+        { "id": "freddo", "price": 3.00, "name": { "en": "Freddo espresso", "el": "Φρέντο εσπρέσσο", "de": "Freddo Espresso", "fr": "Freddo espresso", "es": "Freddo espresso", "it": "Freddo espresso", "pt": "Freddo espresso" } },
+        { "id": "cappuccino", "price": 3.00, "name": { "en": "Cappuccino", "el": "Cappuccino", "de": "Cappuccino", "fr": "Cappuccino", "es": "Cappuccino", "it": "Cappuccino", "pt": "Cappuccino" } }
+      ]
+    }
+  ]
+}
