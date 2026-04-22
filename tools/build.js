@@ -97,7 +97,8 @@ const HTML = `<!DOCTYPE html>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="theme-color" content="#eef1ed" />
-<meta name="color-scheme" content="light" />
+<meta name="color-scheme" content="only light" />
+<meta name="supported-color-schemes" content="light" />
 <title data-i18n="meta_title">${escape(site.translations.en.meta_title)}</title>
 <meta name="description" data-i18n-attr="content:meta_desc" content="${escape(site.translations.en.meta_desc)}" />
 
@@ -106,6 +107,10 @@ const HTML = `<!DOCTYPE html>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
+  /* Hard opt-out of any auto dark-mode inversion (Android Force-Dark,
+     iOS WebView smart invert, Chrome auto-dark experiments) */
+  html { color-scheme: light; }
+
   :root {
     --ink: #0c2235;
     --ink-soft: #3b556e;
