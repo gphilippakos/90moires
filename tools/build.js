@@ -557,6 +557,21 @@ const HTML = `<!DOCTYPE html>
   /* reveal on scroll */
   .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
   .reveal.in { opacity: 1; transform: translateY(0); }
+
+  /* ===== Greek fallback for script text =====
+     Caveat (our casual handwritten font) doesn't ship Greek glyphs,
+     so anywhere we use Caveat shows tofu on the Greek page. Swap to
+     Fraunces italic — already loaded, full Greek support, keeps an
+     elegant "hand-made" feel. Only kicks in when html lang="el". */
+  html:lang(el) .script,
+  html:lang(el) .hero h1 .swash,
+  html:lang(el) .hero-art-placeholder::after,
+  html:lang(el) .signature .sub,
+  html:lang(el) .kilo-note {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-weight: 500;
+  }
 </style>
 </head>
 <body>
