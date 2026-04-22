@@ -4,7 +4,7 @@ const fs = require("fs");
 const path = require("path");
 
 const imagesDir = path.resolve(__dirname, "..", "images");
-const TARGET_SIZE = 800;
+const TARGET_SIZE = 1200;   // max dim on the longer side; aspect ratio preserved
 const QUALITY = 80;
 
 if (!fs.existsSync(imagesDir)) {
@@ -19,7 +19,7 @@ if (files.length === 0) {
   process.exit(0);
 }
 
-console.log(`Optimizing ${files.length} image(s) — target ${TARGET_SIZE}×${TARGET_SIZE}, JPG @ ${QUALITY}%\n`);
+console.log(`Optimizing ${files.length} image(s) — max ${TARGET_SIZE}px on long side (aspect preserved), JPG @ ${QUALITY}%\n`);
 
 (async () => {
   let totalBefore = 0;
@@ -32,7 +32,7 @@ console.log(`Optimizing ${files.length} image(s) — target ${TARGET_SIZE}×${TA
     totalBefore += originalSize;
 
     const output = await sharp(input)
-      .resize(TARGET_SIZE, TARGET_SIZE, { fit: "cover", position: "centre" })
+      .resize(TARGET_SIZE, TARGET_SIZE, { fit: "inside", withoutEnlargement: true })
       .jpeg({ quality: QUALITY, mozjpeg: true })
       .toBuffer();
 
